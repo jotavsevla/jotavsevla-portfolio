@@ -69,6 +69,11 @@ test('renderiza a página, links principais e troca tema com persistência', asy
     'href',
     'https://github.com/jotavsevla/agua-viva-oop',
   );
+  await page.locator('.project-card').first().scrollIntoViewIfNeeded();
+  await page.waitForTimeout(150);
+  await expect(
+    page.locator('.project-card').first().evaluate((element) => getComputedStyle(element).opacity),
+  ).resolves.not.toBe('0');
 
   const initialTheme = await page.evaluate(() => document.documentElement.getAttribute('data-theme'));
   await page.getByRole('button', { name: /alternar tema/i }).click();

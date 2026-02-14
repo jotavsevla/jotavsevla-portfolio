@@ -589,9 +589,14 @@ main {
 }
 
 [data-reveal] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 430ms ease, transform 430ms ease;
+}
+
+[data-reveal].reveal-pending {
   opacity: 0;
   transform: translateY(16px) scale(0.985);
-  transition: opacity 430ms ease, transform 430ms ease;
 }
 
 [data-reveal].is-visible {

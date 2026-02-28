@@ -1,6 +1,6 @@
 import { profileData } from '../data/profile';
 
-const EMAIL_SUBJECT = encodeURIComponent('Oportunidade de estágio backend');
+const EMAIL_SUBJECT = encodeURIComponent('Conversa sobre backend e engenharia de software');
 
 export function HeroSection() {
   const mailtoLink = `mailto:${profileData.email}?subject=${EMAIL_SUBJECT}`;
@@ -8,7 +8,7 @@ export function HeroSection() {
   return (
     <section className="hero" id="inicio">
       <div className="hero__content" data-reveal>
-        <p className="hero__eyebrow">Disponível para estágio</p>
+        <p className="hero__eyebrow">Aberto a conversas estratégicas</p>
         <h1>{profileData.heroHeadline}</h1>
         <p className="hero__summary">{profileData.shortBio}</p>
 

@@ -1,7 +1,7 @@
 import { SectionHeading } from '../components/SectionHeading';
 import { profileData } from '../data/profile';
 
-const EMAIL_SUBJECT = encodeURIComponent('Conversa sobre oportunidade de estágio');
+const EMAIL_SUBJECT = encodeURIComponent('Conversa sobre backend e engenharia');
 
 export function ContactSection() {
   return (
@@ -9,8 +9,8 @@ export function ContactSection() {
       <div className="contact" data-reveal>
         <SectionHeading
           eyebrow="Contato"
-          title="Vamos conversar sobre estágio backend"
-          description="Se quiser discutir oportunidade, projeto técnico ou entrevista, me chama por e-mail ou LinkedIn."
+          title="Vamos conversar sobre backend e produto"
+          description="Se quiser discutir projeto técnico, colaboração ou oportunidade alinhada ao meu perfil, me chama por e-mail ou LinkedIn."
         />
 
         <div className="contact__actions">

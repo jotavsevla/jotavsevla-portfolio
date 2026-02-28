@@ -1,23 +1,28 @@
 export const profileData = {
   fullName: 'João Victor Alves Pereira de Araújo',
   displayName: 'João Victor Araújo',
-  role: 'Estudante de Ciência da Computação com foco em backend, TDD e otimização.',
+  role: 'Desenvolvedor backend em formação, com foco em TDD e otimização.',
   shortBio:
-    'Desenvolvo soluções backend com Java 21, SQL forte e testes automatizados. Hoje concentro energia em arquitetura orientada a objetos, qualidade de código e problemas de logística.',
+    'Desenvolvo soluções backend com Java (LTS 21 e 25), SQL forte e testes automatizados. Tenho experiência em integração Java + Python para otimização logística, com foco em arquitetura orientada a objetos e qualidade de código.',
   location: 'Montes Claros - MG',
   email: 'jotavsevla@gmail.com',
   linkedin: 'https://linkedin.com/in/joao-victor-araujo-629392275',
   github: 'https://github.com/jotavsevla',
   githubUsername: 'jotavsevla',
   avatarUrl: 'https://avatars.githubusercontent.com/u/121209009?v=4',
-  heroHeadline: 'Backend técnico, orientado a testes e pronto para estágio de engenharia.',
-  heroHighlights: ['Java 21 + JDBC', 'PostgreSQL + SQL avançado', 'TDD com testes de integração', 'Integração com solver Python (CVRPTW)'],
+  heroHeadline: 'Backend técnico, orientado a testes e evolução contínua de sistemas.',
+  heroHighlights: [
+    'Java LTS (21 e 25) + JDBC',
+    'PostgreSQL + SQL avançado',
+    'TDD com testes de integração',
+    'Integração com solver Python (CVRPTW)',
+  ],
 };
 
 export const skillGroups = [
   {
     title: 'Stack Principal',
-    items: ['Java 21', 'JDBC', 'PostgreSQL', 'SQL', 'REST APIs', 'Docker Compose'],
+    items: ['Java (21 e 25)', 'JDBC', 'PostgreSQL', 'SQL', 'REST APIs', 'Docker Compose'],
   },
   {
     title: 'Qualidade',

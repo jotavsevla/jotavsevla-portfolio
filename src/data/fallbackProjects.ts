@@ -5,7 +5,7 @@ export const fallbackProjects: ProjectCardModel[] = [
     id: 'agua-viva-oop',
     name: 'agua-viva-oop',
     description:
-      'Sistema logístico para distribuidora de água com Java 21, JDBC, PostgreSQL e integração com solver Python (OR-Tools/CVRPTW).',
+      'Sistema logístico para distribuidora de água com Java (LTS 21 e 25), JDBC, PostgreSQL e integração com solver Python (OR-Tools/CVRPTW).',
     language: 'Java',
     updatedAt: '2026-02-13T22:01:51Z',
     repoUrl: 'https://github.com/jotavsevla/agua-viva-oop',

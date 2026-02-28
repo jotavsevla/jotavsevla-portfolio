@@ -1,6 +1,6 @@
 # João Victor Araújo • Terminal Premium Portfolio
 
-Landing page em React + Vite com foco em recrutadores para estágio backend.
+Landing page em React + Vite com foco em recrutadores e times de engenharia backend.
 
 ## Stack
 

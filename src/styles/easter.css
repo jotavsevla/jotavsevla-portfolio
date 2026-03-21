@@ -1,0 +1,35 @@
+.easter-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+}
+.easter-canvas {
+  width: 100%;
+  height: 100%;
+}
+.easter-toast {
+  position: fixed;
+  top: 5rem;
+  right: 2rem;
+  background: rgba(18, 16, 30, 0.95);
+  border: 1px solid var(--accent);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  z-index: 10001;
+  box-shadow: 0 0 20px var(--glow);
+  animation: easter-toast-in 0.3s ease-out;
+}
+@keyframes easter-toast-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .easter-toast {
+    animation: none;
+  }
+}

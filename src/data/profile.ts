@@ -70,14 +70,3 @@ export const languages = [
   { name: 'Inglês', level: 'Intermediário' },
   { name: 'Espanhol', level: 'Básico' },
 ];
-
-export const differential = {
-  title: 'Diferencial Competitivo',
-  body:
-    'Experiência prévia como jogador profissional de Rainbow Six Siege (vice-campeão nacional) reforçou disciplina de treino, leitura de risco em tempo real e execução sob pressão com alta responsabilidade coletiva.',
-  bullets: [
-    'Tomada de decisão técnica sob pressão',
-    'Comunicação operacional em equipe de 5 pessoas',
-    'Disciplina de melhoria contínua e feedback rápido',
-  ],
-};

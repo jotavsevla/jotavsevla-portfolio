@@ -1,0 +1,100 @@
+{
+  "nav": {
+    "projects": "Projects",
+    "stack": "Stack",
+    "experience": "Experience",
+    "education": "Education",
+    "contact": "Contact",
+    "home": "Home",
+    "aria_main": "Main navigation",
+    "aria_go_to": "Go to"
+  },
+  "hero": {
+    "eyebrow": "Open to strategic conversations",
+    "headline": "Technical backend developer, test-driven and focused on continuous system evolution.",
+    "summary": "I build backend solutions with Java (LTS 21 and 25), strong SQL, and automated tests. I have experience integrating Java + Python for logistics optimization, with a focus on object-oriented architecture and code quality.",
+    "highlights": ["Java LTS (21 & 25) + JDBC", "PostgreSQL + Advanced SQL", "TDD with integration tests", "Python solver integration (CVRPTW)"],
+    "cta_email": "Send email",
+    "cta_linkedin": "LinkedIn",
+    "cta_cv_view": "View CV",
+    "cta_cv_download": "Download CV",
+    "role": "Backend developer in training, focused on TDD and optimization.",
+    "location": "Montes Claros - MG"
+  },
+  "projects": {
+    "eyebrow": "Projects",
+    "title": "Featured repositories",
+    "description": "Auto-generated list from GitHub focused on technically relevant backend and engineering projects.",
+    "fallback_warning": "Fallback mode active: showing local projects due to temporary GitHub API unavailability.",
+    "empty": "No projects available at the moment.",
+    "last_updated": "Last updated",
+    "no_recent": "no recent update",
+    "stars": "stars",
+    "forks": "forks",
+    "view_github": "View on GitHub",
+    "error_cache": "GitHub unavailable. Showing cached data.",
+    "error_fallback": "GitHub unavailable. Showing local projects.",
+    "error_unexpected": "Unexpected error loading projects."
+  },
+  "skills": {
+    "eyebrow": "Stack",
+    "title": "Technologies I use daily",
+    "description": "Focused on robust backend, real SQL, and code quality from day one.",
+    "groups": {
+      "stack_principal": "Main Stack",
+      "quality": "Quality",
+      "fundamentals": "Fundamentals",
+      "learning": "Currently Learning"
+    }
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "title": "Professional journey",
+    "description": "Continuous technical training combined with professional experience in a high-demand environment."
+  },
+  "education": {
+    "eyebrow": "Education",
+    "title": "Academic background",
+    "description": "Bachelor in Computer Science with a focus on solid fundamentals.",
+    "period_label": "Period",
+    "current": "Present",
+    "subjects_label": "Relevant subjects",
+    "lang_eyebrow": "Languages",
+    "lang_title": "International communication"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let's talk about backend and product",
+    "description": "If you want to discuss a technical project, collaboration, or opportunity aligned with my profile, reach out via email or LinkedIn.",
+    "cta_email": "Send email",
+    "cta_github": "GitHub",
+    "cta_cv": "Open CV",
+    "email_subject": "Conversation about backend and software engineering"
+  },
+  "footer": {
+    "built_with": "built with React + Vite",
+    "portfolio_of": "Portfolio by"
+  },
+  "terminal": {
+    "title": "Terminal",
+    "prompt": "visitor@portfolio",
+    "placeholder": "Type a command...",
+    "help_hint": "Type 'help' to see available commands",
+    "unknown_command": "Unknown command. Type 'help' for help.",
+    "commands": {
+      "help": "help",
+      "about": "about",
+      "skills": "skills",
+      "projects": "projects",
+      "contact": "contact",
+      "clear": "clear",
+      "whoami": "whoami"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error loading",
+    "language": "EN",
+    "close": "Close"
+  }
+}

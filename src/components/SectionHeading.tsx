@@ -8,7 +8,7 @@ export function SectionHeading({ eyebrow, title, description }: SectionHeadingPr
   return (
     <header className="section-heading" data-reveal>
       <p className="section-heading__eyebrow">{eyebrow}</p>
-      <h2>{title}</h2>
+      <h2 className="glitch--subtle" data-glitch={title}>{title}</h2>
       {description ? <p className="section-heading__description">{description}</p> : null}
     </header>
   );

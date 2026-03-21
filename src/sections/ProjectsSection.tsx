@@ -1,52 +1,74 @@
+import { useRef } from 'react';
 import { ProjectCard } from '../components/ProjectCard';
 import { SectionHeading } from '../components/SectionHeading';
+import { useLanguage } from '../i18n/context';
+import { gsap, useGSAP } from '../hooks/useGsap';
 import type { UseGithubProjectsResult } from '../hooks/useGithubProjects';
 
-function formatRefreshedAt(refreshedAt: string | null): string {
+function formatRefreshedAt(refreshedAt: string | null, fallbackText: string, lang: string): string {
   if (!refreshedAt) {
-    return 'sem atualização recente';
+    return fallbackText;
   }
 
   const parsed = new Date(refreshedAt);
   if (Number.isNaN(parsed.getTime())) {
-    return 'sem atualização recente';
+    return fallbackText;
   }
 
-  return new Intl.DateTimeFormat('pt-BR', {
+  return new Intl.DateTimeFormat(lang === 'pt' ? 'pt-BR' : 'en-US', {
     dateStyle: 'medium',
     timeStyle: 'short',
   }).format(parsed);
 }
 
 export function ProjectsSection({ projects, loading, error, source, refreshedAt }: UseGithubProjectsResult) {
+  const { t, lang } = useLanguage();
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+    
+    gsap.from('.project-card', {
+      opacity: 0, 
+      y: 40, 
+      duration: 0.7, 
+      stagger: 0.12,
+      scrollTrigger: { 
+        trigger: containerRef.current, 
+        start: 'top 80%' 
+      }
+    });
+  }, { scope: containerRef });
+
   return (
-    <section id="projetos" className="section">
+    <div className="section" ref={containerRef}>
       <SectionHeading
-        eyebrow="Projetos"
-        title="Repositórios em destaque"
-        description="Lista automática do GitHub com foco em projetos técnicos relevantes para backend e fundamentos de engenharia."
+        eyebrow={t('projects.eyebrow')}
+        title={t('projects.title')}
+        description={t('projects.description')}
       />
 
       {source === 'fallback' ? (
-        <div className="status-banner status-banner--warning" role="status" data-reveal>
-          Modo fallback ativo: exibindo projetos locais por indisponibilidade temporária da API do GitHub.
+        <div className="status-banner status-banner--warning" role="status">
+          {t('projects.fallback_warning')}
         </div>
       ) : null}
 
       {error ? (
-        <div className="status-banner status-banner--info" role="status" data-reveal>
-          {error}
+        <div className="status-banner status-banner--info" role="status">
+          {t(error)}
         </div>
       ) : null}
 
-      <p className="projects-refresh" data-reveal>
-        Última atualização: {formatRefreshedAt(refreshedAt)}
+      <p className="projects-refresh">
+        {t('projects.last_updated')}: {formatRefreshedAt(refreshedAt, t('projects.no_recent'), lang)}
       </p>
 
       {loading ? (
         <div className="projects-grid" aria-live="polite">
-          {Array.from({ length: 4 }).map((_, index) => (
-            <article className="project-card project-card--skeleton" key={`skeleton-${index}`}>
+          {[1, 2, 3, 4].map((skeletonId) => (
+            <article className="project-card project-card--skeleton" key={skeletonId}>
               <div className="skeleton skeleton--title" />
               <div className="skeleton skeleton--line" />
               <div className="skeleton skeleton--line" />
@@ -65,10 +87,10 @@ export function ProjectsSection({ projects, loading, error, source, refreshedAt 
       ) : null}
 
       {!loading && projects.length === 0 ? (
-        <div className="empty-state" data-reveal>
-          Nenhum projeto disponível no momento.
+        <div className="empty-state">
+          {t('projects.empty')}
         </div>
       ) : null}
-    </section>
+    </div>
   );
 }

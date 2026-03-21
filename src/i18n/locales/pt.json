@@ -1,0 +1,100 @@
+{
+  "nav": {
+    "projects": "Projetos",
+    "stack": "Stack",
+    "experience": "Experiência",
+    "education": "Formação",
+    "contact": "Contato",
+    "home": "Início",
+    "aria_main": "Navegação principal",
+    "aria_go_to": "Ir para"
+  },
+  "hero": {
+    "eyebrow": "Aberto a conversas estratégicas",
+    "headline": "Backend técnico, orientado a testes e evolução contínua de sistemas.",
+    "summary": "Desenvolvo soluções backend com Java (LTS 21 e 25), SQL forte e testes automatizados. Tenho experiência em integração Java + Python para otimização logística, com foco em arquitetura orientada a objetos e qualidade de código.",
+    "highlights": ["Java LTS (21 e 25) + JDBC", "PostgreSQL + SQL avançado", "TDD com testes de integração", "Integração com solver Python (CVRPTW)"],
+    "cta_email": "Enviar e-mail",
+    "cta_linkedin": "LinkedIn",
+    "cta_cv_view": "Ver CV",
+    "cta_cv_download": "Baixar CV",
+    "role": "Desenvolvedor backend em formação, com foco em TDD e otimização.",
+    "location": "Montes Claros - MG"
+  },
+  "projects": {
+    "eyebrow": "Projetos",
+    "title": "Repositórios em destaque",
+    "description": "Lista automática do GitHub com foco em projetos técnicos relevantes para backend e fundamentos de engenharia.",
+    "fallback_warning": "Modo fallback ativo: exibindo projetos locais por indisponibilidade temporária da API do GitHub.",
+    "empty": "Nenhum projeto disponível no momento.",
+    "last_updated": "Última atualização",
+    "no_recent": "sem atualização recente",
+    "stars": "estrelas",
+    "forks": "forks",
+    "view_github": "Ver no GitHub",
+    "error_cache": "GitHub indisponível. Exibindo dados salvos em cache.",
+    "error_fallback": "GitHub indisponível. Exibindo projetos locais.",
+    "error_unexpected": "Erro inesperado ao carregar projetos."
+  },
+  "skills": {
+    "eyebrow": "Stack",
+    "title": "Tecnologias que uso no dia a dia",
+    "description": "Foco em backend robusto, SQL de verdade e qualidade de código desde o início.",
+    "groups": {
+      "stack_principal": "Stack Principal",
+      "quality": "Qualidade",
+      "fundamentals": "Fundamentos",
+      "learning": "Aprendendo Agora"
+    }
+  },
+  "experience": {
+    "eyebrow": "Experiência",
+    "title": "Trajetória profissional",
+    "description": "Formação técnica contínua aliada à experiência profissional em ambiente de alta demanda."
+  },
+  "education": {
+    "eyebrow": "Educação",
+    "title": "Formação acadêmica",
+    "description": "Bacharel em Ciência da Computação com foco em fundamentos sólidos.",
+    "period_label": "Período",
+    "current": "Atual",
+    "subjects_label": "Disciplinas relevantes",
+    "lang_eyebrow": "Idiomas",
+    "lang_title": "Comunicação internacional"
+  },
+  "contact": {
+    "eyebrow": "Contato",
+    "title": "Vamos conversar sobre backend e produto",
+    "description": "Se quiser discutir projeto técnico, colaboração ou oportunidade alinhada ao meu perfil, me chama por e-mail ou LinkedIn.",
+    "cta_email": "Enviar e-mail",
+    "cta_github": "GitHub",
+    "cta_cv": "Abrir CV",
+    "email_subject": "Conversa sobre backend e engenharia de software"
+  },
+  "footer": {
+    "built_with": "construído com React + Vite",
+    "portfolio_of": "Portfólio de"
+  },
+  "terminal": {
+    "title": "Terminal",
+    "prompt": "visitante@portfolio",
+    "placeholder": "Digite um comando...",
+    "help_hint": "Digite 'help' para ver os comandos disponíveis",
+    "unknown_command": "Comando não reconhecido. Digite 'help' para ajuda.",
+    "commands": {
+      "help": "help",
+      "about": "about",
+      "skills": "skills",
+      "projects": "projects",
+      "contact": "contact",
+      "clear": "clear",
+      "whoami": "whoami"
+    }
+  },
+  "common": {
+    "loading": "Carregando...",
+    "error": "Erro ao carregar",
+    "language": "PT",
+    "close": "Fechar"
+  }
+}

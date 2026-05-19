@@ -5,52 +5,44 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--ink, #14110d);
+  /* solid ink (dark) — guaranteed contrast against cream */
+  background: #14110d;
+  /* outer halo gives it a touch of softness without breaking visibility */
+  box-shadow: 0 0 0 1.5px rgba(245, 239, 225, 0.6);
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: difference;
-  filter: invert(1);
   transition:
     width 240ms cubic-bezier(0.7, 0, 0.3, 1),
     height 240ms cubic-bezier(0.7, 0, 0.3, 1),
     background-color 180ms ease,
-    opacity 180ms ease;
+    opacity 180ms ease,
+    box-shadow 180ms ease;
   will-change: transform, width, height;
 }
 
-.cursor-dot--hidden {
-  opacity: 0;
-}
+.cursor-dot--hidden { opacity: 0; }
 
 .cursor-dot--hover {
   width: 36px;
   height: 36px;
   background: var(--highlight, #ff4a1a);
-  mix-blend-mode: normal;
-  filter: none;
-  opacity: 0.35;
+  box-shadow: 0 0 0 1.5px rgba(255, 74, 26, 0.18);
+  opacity: 0.7;
 }
 
 /* Hide native cursor only when our dot is active (preserves accessibility) */
-body.has-cursor-dot {
-  cursor: none;
-}
-
+body.has-cursor-dot { cursor: none; }
 body.has-cursor-dot a,
 body.has-cursor-dot button,
 body.has-cursor-dot [role="button"],
 body.has-cursor-dot input,
 body.has-cursor-dot textarea,
-body.has-cursor-dot select {
-  cursor: none;
-}
+body.has-cursor-dot select { cursor: none; }
 
-/* Restore default cursor where text needs to be selectable, etc. */
+/* Restore default cursor where text needs to be selectable */
 body.has-cursor-dot input[type="text"],
 body.has-cursor-dot input[type="email"],
-body.has-cursor-dot textarea {
-  cursor: text;
-}
+body.has-cursor-dot textarea { cursor: text; }
 
 @media (pointer: coarse), (prefers-reduced-motion: reduce) {
   .cursor-dot { display: none !important; }

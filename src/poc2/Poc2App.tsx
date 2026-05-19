@@ -60,7 +60,8 @@ export function Poc2App() {
     <div className="poc2">
       <CursorDot />
 
-      {/* ── Top nav ─────────────────────────────────────────────────────── */}
+      {/* ── Sticky header: nav + spine glued together ───────────────────── */}
+      <div className="poc2-header">
       <header className="poc2-nav">
         <div className="poc2-nav__brand">
           <span className="poc2-nav__name">{profileData.fullName.split(' ').slice(0, 2).join(' ')}</span>
@@ -93,7 +94,7 @@ export function Poc2App() {
         </div>
       </header>
 
-      {/* ── Spine: ref / issue / live scroll % (sticky) ─────────────────── */}
+      {/* ── Spine: ref / issue / live scroll % ──────────────────────────── */}
       <div className="poc2-spine">
         <span>{t.spine.issue} {issue} / {t.spine.coll} {now.getFullYear()}</span>
         <span className="poc2-spine__sep">·</span>
@@ -103,6 +104,7 @@ export function Poc2App() {
         <span className="poc2-spine__bar" aria-hidden="true">
           <span className="poc2-spine__bar-fill" style={{ width: `${pct}%` }} />
         </span>
+      </div>
       </div>
 
       {/* ── Hero ────────────────────────────────────────────────────────── */}

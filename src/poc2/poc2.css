@@ -161,45 +161,44 @@
 }
 
 @media (max-width: 760px) {
-  .poc2-nav { grid-template-columns: 1fr auto; gap: 1rem; padding: 1rem 1.25rem; }
+  .poc2-nav { grid-template-columns: 1fr auto; gap: 1rem; padding: 0.75rem 1.1rem; }
   .poc2-nav__menu { display: none; }
+  .poc2-nav__role { display: none; }
+  .poc2-nav__name { font-size: 0.98rem; }
+  .poc2-nav__copy { padding: 0.4rem 0.7rem; font-size: 0.72rem; }
+  .poc2-nav__lang { padding: 0.35rem 0.55rem; font-size: 0.68rem; }
 }
 
-/* ── Nav (sticky) + Spine (sticky) ───────────────────────────── */
-.poc2-nav {
+/* ── Sticky header (nav + spine as one block) ────────────────── */
+.poc2-header {
   position: sticky;
   top: 0;
   z-index: 30;
-  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
   backdrop-filter: saturate(180%) blur(14px);
   -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--line);
 }
 
 .poc2-spine {
-  position: sticky;
-  top: 68px;
-  z-index: 29;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.65rem 1.5rem;
+  padding: 0.55rem 1.5rem;
   border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
   font-family: 'JetBrains Mono Variable', monospace;
   font-size: 0.68rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
-  background: color-mix(in srgb, var(--bg) 94%, transparent);
-  backdrop-filter: saturate(180%) blur(14px);
-  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  background: transparent;
 }
 
 @media (max-width: 760px) {
   .poc2-spine__ref { display: none; }
   .poc2-spine__ref + .poc2-spine__sep { display: none; }
-  .poc2-spine { top: 64px; padding: 0.5rem 1rem; }
+  .poc2-spine { padding: 0.45rem 1rem; }
 }
 
 .poc2-spine__sep { color: var(--dim); }

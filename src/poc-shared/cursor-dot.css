@@ -30,19 +30,26 @@
   opacity: 0.7;
 }
 
-/* Hide native cursor only when our dot is active (preserves accessibility) */
-body.has-cursor-dot { cursor: none; }
-body.has-cursor-dot a,
-body.has-cursor-dot button,
-body.has-cursor-dot [role="button"],
-body.has-cursor-dot input,
-body.has-cursor-dot textarea,
-body.has-cursor-dot select { cursor: none; }
+/* Hide native cursor everywhere when our dot is active.
+   We use !important to override any descendant cursor declarations
+   (e.g. .stack-cube { cursor: grab }) that would otherwise re-introduce
+   the native arrow alongside our dot. */
+body.has-cursor-dot,
+body.has-cursor-dot * { cursor: none !important; }
 
-/* Restore default cursor where text needs to be selectable */
+/* Restore default cursor only where text needs to be selectable */
 body.has-cursor-dot input[type="text"],
 body.has-cursor-dot input[type="email"],
-body.has-cursor-dot textarea { cursor: text; }
+body.has-cursor-dot textarea { cursor: text !important; }
+
+/* Grab variant: when hovering elements that signal draggability */
+.cursor-dot--grab {
+  width: 28px;
+  height: 28px;
+  background: var(--highlight, #ff4a1a);
+  box-shadow: 0 0 0 1.5px rgba(255, 74, 26, 0.18);
+  opacity: 0.55;
+}
 
 @media (pointer: coarse), (prefers-reduced-motion: reduce) {
   .cursor-dot { display: none !important; }

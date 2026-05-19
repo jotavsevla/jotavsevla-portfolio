@@ -46,11 +46,11 @@ export function CursorDot() {
 
     const onOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
-      if (target?.closest('a, button, [role="button"], input, textarea, select')) {
-        dot.classList.add('cursor-dot--hover');
-      } else {
-        dot.classList.remove('cursor-dot--hover');
-      }
+      // Drag-affordance elements get their own variant (no native grab cursor)
+      const isGrab = target?.closest('[data-cursor="grab"], .stack-cube');
+      const isInteractive = target?.closest('a, button, [role="button"], input, textarea, select');
+      dot.classList.toggle('cursor-dot--grab', !!isGrab);
+      dot.classList.toggle('cursor-dot--hover', !!isInteractive && !isGrab);
     };
 
     document.addEventListener('mousemove', onMove);

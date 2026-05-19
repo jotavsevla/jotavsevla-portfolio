@@ -115,7 +115,10 @@
       "caption_pre": "— Um estudo em",
       "caption_em": "sistemas de backend",
       "caption_post": ", apresentado em seis camadas de trabalho.",
-      "bio": "Desenho e construo sistemas server-side com foco em testabilidade, integridade e o ofício discreto de código bem nomeado. Atualmente em Montes Claros, Brasil — aberto a conversas em qualquer fuso."
+      "bio_pre": "Desenho e construo sistemas server-side com foco em testabilidade, integridade e o ofício discreto de código bem nomeado",
+      "bio_footnote_marker": "¹",
+      "bio_post": ". Atualmente em Montes Claros, Brasil — aberto a conversas em qualquer fuso.",
+      "bio_footnote": "¹ Atualmente desenvolvendo RPAs e microserviços para uma empresa de contabilidade — ver Trajetória."
     },
     "works": {
       "section_title": "Projetos em Destaque",
@@ -148,7 +151,23 @@
       "mail_prefix_to": "para"
     },
     "footer": {
-      "version": "v0.2.0 · editorial cream"
+      "version": "v0.3.0 · editorial cream",
+      "marquee": [
+        "Aberto a oportunidades",
+        "Backend · Java · PostgreSQL",
+        "Montes Claros, Brasil",
+        "Currículo disponível",
+        "Disponível 2026",
+        "Vamos conversar"
+      ],
+      "colophon": "Composto em EB Garamond & JetBrains Mono Variable. Construído com React, Vite e Lenis. Impresso em algum lugar do Brasil."
+    },
+    "drawer": {
+      "view_repo": "Ver no GitHub",
+      "close": "Fechar",
+      "label_stack": "Stack",
+      "label_repo": "Repositório",
+      "label_year": "Ano"
     }
   }
 }

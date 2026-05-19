@@ -115,7 +115,10 @@
       "caption_pre": "— A study in",
       "caption_em": "backend systems",
       "caption_post": ", presented as six layers of work.",
-      "bio": "I design and build server-side systems with a focus on testability, integrity, and the quiet craft of well-named code. Currently based in Brazil — open to conversations worldwide."
+      "bio_pre": "I design and build server-side systems with a focus on testability, integrity, and the quiet craft of well-named code",
+      "bio_footnote_marker": "¹",
+      "bio_post": ". Currently based in Brazil — open to conversations worldwide.",
+      "bio_footnote": "¹ Currently building RPAs and microservices for an accounting firm — see Trajectory."
     },
     "works": {
       "section_title": "Featured Works",
@@ -148,7 +151,23 @@
       "mail_prefix_to": "to"
     },
     "footer": {
-      "version": "v0.2.0 · editorial cream"
+      "version": "v0.3.0 · editorial cream",
+      "marquee": [
+        "Open to opportunities",
+        "Backend · Java · PostgreSQL",
+        "Based in Brazil",
+        "Resume available",
+        "Available 2026",
+        "Let's talk"
+      ],
+      "colophon": "Set in EB Garamond & JetBrains Mono Variable. Built with React, Vite & Lenis. Printed somewhere in Brazil."
+    },
+    "drawer": {
+      "view_repo": "View on GitHub",
+      "close": "Close",
+      "label_stack": "Stack",
+      "label_repo": "Repository",
+      "label_year": "Year"
     }
   }
 }

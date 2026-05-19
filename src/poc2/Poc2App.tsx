@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react';
 import { profileData, skillGroups, experiences, education, languages } from '../data/profile';
 import { useLanguage } from '../i18n/context';
 import { StackCube } from '../poc-shared/StackCube';
+import { CursorDot } from '../poc-shared/CursorDot';
 import { useSmoothPage } from '../poc-shared/useSmoothPage';
+import { useActiveSection } from '../poc-shared/useActiveSection';
+import { useSplitReveal } from '../poc-shared/useSplitReveal';
+import { WorkDrawer, type WorkItem } from './WorkDrawer';
 import './poc2.css';
 
 function useScrollPct(): number {
@@ -31,6 +35,8 @@ function useCopyEmail(email: string): [boolean, () => void] {
   return [copied, copy];
 }
 
+const SECTION_IDS = ['work', 'stack', 'archive', 'about', 'contact'];
+
 export function Poc2App() {
   useSmoothPage();
   const { dict, lang, toggleLang } = useLanguage();
@@ -41,20 +47,30 @@ export function Poc2App() {
   const ref = `EDI-${String(now.getMonth() + 1).padStart(2, '0')}${now.getFullYear()}-R02`;
   const pct = useScrollPct();
   const [copied, copyEmail] = useCopyEmail(profileData.email);
+  const activeSection = useActiveSection(SECTION_IDS);
+  const [openWork, setOpenWork] = useState<WorkItem | null>(null);
+
+  // split text reveal — re-runs on language change so lines are re-measured
+  useSplitReveal('.poc2-section__head h2, .poc2-contact__mail', lang);
+
+  // Marquee items duplicated for seamless loop
+  const marqueeItems = [...t.footer.marquee, ...t.footer.marquee];
 
   return (
     <div className="poc2">
+      <CursorDot />
+
       {/* ── Top nav ─────────────────────────────────────────────────────── */}
       <header className="poc2-nav">
         <div className="poc2-nav__brand">
           <span className="poc2-nav__name">{profileData.fullName.split(' ').slice(0, 2).join(' ')}</span>
           <span className="poc2-nav__role">{t.nav.role_line}</span>
         </div>
-        <nav className="poc2-nav__menu">
-          <a href="#work">{t.nav.works}</a>
-          <a href="#archive">{t.nav.archive}</a>
-          <a href="#about">{t.nav.about}</a>
-          <a href="#contact">{t.nav.contact}</a>
+        <nav className="poc2-nav__menu" aria-label="Sections">
+          <a href="#work" className={activeSection === 'work' ? 'is-active' : ''}>{t.nav.works}</a>
+          <a href="#archive" className={activeSection === 'archive' ? 'is-active' : ''}>{t.nav.archive}</a>
+          <a href="#about" className={activeSection === 'about' ? 'is-active' : ''}>{t.nav.about}</a>
+          <a href="#contact" className={activeSection === 'contact' ? 'is-active' : ''}>{t.nav.contact}</a>
         </nav>
         <div className="poc2-nav__right">
           <button
@@ -77,11 +93,11 @@ export function Poc2App() {
         </div>
       </header>
 
-      {/* ── Spine: ref / issue / live scroll % ──────────────────────────── */}
+      {/* ── Spine: ref / issue / live scroll % (sticky) ─────────────────── */}
       <div className="poc2-spine">
         <span>{t.spine.issue} {issue} / {t.spine.coll} {now.getFullYear()}</span>
         <span className="poc2-spine__sep">·</span>
-        <span>Ref. {ref}</span>
+        <span className="poc2-spine__ref">Ref. {ref}</span>
         <span className="poc2-spine__sep">·</span>
         <span className="poc2-spine__pct" aria-live="polite">{String(pct).padStart(2, '0')}%</span>
         <span className="poc2-spine__bar" aria-hidden="true">
@@ -100,7 +116,14 @@ export function Poc2App() {
             <span className="poc2-hero__display-em">Araújo</span>
           </h1>
           <div className="poc2-hero__row">
-            <p className="poc2-hero__bio">{t.hero.bio}</p>
+            <div className="poc2-hero__bio-wrap">
+              <p className="poc2-hero__bio">
+                {t.hero.bio_pre}
+                <sup className="poc2-hero__bio-fn">{t.hero.bio_footnote_marker}</sup>
+                {t.hero.bio_post}
+              </p>
+              <p className="poc2-hero__bio-footnote">{t.hero.bio_footnote}</p>
+            </div>
             <div className="poc2-hero__cube">
               <StackCube size={260} variant="cream" />
             </div>
@@ -119,18 +142,17 @@ export function Poc2App() {
         <ol className="poc2-works">
           {t.works.items.map((w, i) => (
             <li className="poc2-work" key={w.code}>
-              <a
+              <button
+                type="button"
                 className="poc2-work__link"
-                href={`https://github.com/${profileData.githubUsername}/${w.code}`}
-                target="_blank"
-                rel="noreferrer"
+                onClick={() => setOpenWork(w)}
               >
                 <span className="poc2-work__idx">{String(i + 1).padStart(2, '0')}</span>
                 <span className="poc2-work__title">{w.title}</span>
                 <span className="poc2-work__kind">{w.kind}</span>
                 <span className="poc2-work__stack">{w.stack}</span>
                 <span className="poc2-work__year">{w.year}</span>
-              </a>
+              </button>
             </li>
           ))}
         </ol>
@@ -216,25 +238,54 @@ export function Poc2App() {
 
       {/* ── Contact ─────────────────────────────────────────────────────── */}
       <section className="poc2-section poc2-contact" id="contact">
-        <div className="poc2-section__head">
-          <span className="poc2-section__num">— 06</span>
-          <h2>{t.contact.section_title}</h2>
-          <span className="poc2-section__meta">{t.contact.section_meta}</span>
-        </div>
-        <a className="poc2-contact__mail" href={mailto}>
-          <em>{t.contact.mail_prefix_em}</em> {t.contact.mail_prefix_to} {profileData.email} ↗
-        </a>
-        <div className="poc2-contact__row">
-          <a href={profileData.linkedin} target="_blank" rel="noreferrer">linkedin</a>
-          <a href={profileData.github} target="_blank" rel="noreferrer">github</a>
-          <a href="/cv/JoaoCV.pdf" target="_blank" rel="noreferrer">curriculum.pdf</a>
+        <div className="poc2-contact__watermark" aria-hidden="true">JV.</div>
+        <div className="poc2-contact__content">
+          <div className="poc2-section__head">
+            <span className="poc2-section__num">— 06</span>
+            <h2>{t.contact.section_title}</h2>
+            <span className="poc2-section__meta">{t.contact.section_meta}</span>
+          </div>
+          <a className="poc2-contact__mail" href={mailto}>
+            <em>{t.contact.mail_prefix_em}</em> {t.contact.mail_prefix_to} {profileData.email} ↗
+          </a>
+          <div className="poc2-contact__row">
+            <a href={profileData.linkedin} target="_blank" rel="noreferrer">linkedin</a>
+            <a href={profileData.github} target="_blank" rel="noreferrer">github</a>
+            <a href="/cv/JoaoCV.pdf" target="_blank" rel="noreferrer">curriculum.pdf</a>
+          </div>
         </div>
       </section>
 
+      {/* ── Footer: marquee + colophon + meta ───────────────────────────── */}
       <footer className="poc2-foot">
-        <span>© {now.getFullYear()} — {profileData.fullName}</span>
-        <span>{t.footer.version}</span>
+        <div className="poc2-marquee" aria-hidden="true">
+          <div className="poc2-marquee__track">
+            {marqueeItems.map((m, i) => (
+              <span key={`${m}-${i}`} className="poc2-marquee__item">
+                {m}
+                <span className="poc2-marquee__sep">✦</span>
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <p className="poc2-colophon">{t.footer.colophon}</p>
+
+        <div className="poc2-foot__row">
+          <span>© {now.getFullYear()} — {profileData.fullName}</span>
+          <span>{t.footer.version}</span>
+        </div>
       </footer>
+
+      <WorkDrawer
+        work={openWork}
+        onClose={() => setOpenWork(null)}
+        labelView={t.drawer.view_repo}
+        labelClose={t.drawer.close}
+        labelStack={t.drawer.label_stack}
+        labelRepo={t.drawer.label_repo}
+        labelYear={t.drawer.label_year}
+      />
     </div>
   );
 }

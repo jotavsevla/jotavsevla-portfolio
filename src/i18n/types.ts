@@ -107,7 +107,10 @@ export interface TranslationDict {
       caption_pre: string;
       caption_em: string;
       caption_post: string;
-      bio: string;
+      bio_pre: string;
+      bio_footnote_marker: string;
+      bio_post: string;
+      bio_footnote: string;
     };
     works: {
       section_title: string;
@@ -134,6 +137,15 @@ export interface TranslationDict {
     };
     footer: {
       version: string;
+      marquee: string[];
+      colophon: string;
+    };
+    drawer: {
+      view_repo: string;
+      close: string;
+      label_stack: string;
+      label_repo: string;
+      label_year: string;
     };
   };
 }

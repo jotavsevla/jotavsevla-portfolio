@@ -29,3 +29,6 @@ blob-report
 test-results
 *.pdf
 !public/cv/*.pdf
+
+# Local Claude Code config (preview launch, worktree state)
+.claude/

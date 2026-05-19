@@ -89,4 +89,51 @@ export interface TranslationDict {
     language: string;
     close: string;
   };
+  poc2: {
+    nav: {
+      role_line: string;
+      works: string;
+      archive: string;
+      about: string;
+      contact: string;
+      copy_email: string;
+      copied: string;
+    };
+    spine: {
+      issue: string;
+      coll: string;
+    };
+    hero: {
+      caption_pre: string;
+      caption_em: string;
+      caption_post: string;
+      bio: string;
+    };
+    works: {
+      section_title: string;
+      section_meta: string;
+      items: { title: string; code: string; kind: string; stack: string; year: number }[];
+    };
+    stack: {
+      section_title: string;
+      section_meta: string;
+    };
+    trajectory: {
+      section_title: string;
+      section_meta: string;
+    };
+    education: {
+      section_title: string;
+      languages_title: string;
+    };
+    contact: {
+      section_title: string;
+      section_meta: string;
+      mail_prefix_em: string;
+      mail_prefix_to: string;
+    };
+    footer: {
+      version: string;
+    };
+  };
 }

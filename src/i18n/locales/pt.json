@@ -96,5 +96,59 @@
     "error": "Erro ao carregar",
     "language": "PT",
     "close": "Fechar"
+  },
+  "poc2": {
+    "nav": {
+      "role_line": "Desenvolvedor Backend · Atualmente em contabilidade, aberto a novas oportunidades",
+      "works": "Projetos",
+      "archive": "Arquivo",
+      "about": "Sobre",
+      "contact": "Contato",
+      "copy_email": "Copiar e-mail",
+      "copied": "Copiado ·"
+    },
+    "spine": {
+      "issue": "Edição",
+      "coll": "Vol."
+    },
+    "hero": {
+      "caption_pre": "— Um estudo em",
+      "caption_em": "sistemas de backend",
+      "caption_post": ", apresentado em seis camadas de trabalho.",
+      "bio": "Desenho e construo sistemas server-side com foco em testabilidade, integridade e o ofício discreto de código bem nomeado. Atualmente em Montes Claros, Brasil — aberto a conversas em qualquer fuso."
+    },
+    "works": {
+      "section_title": "Projetos em Destaque",
+      "section_meta": "Selecionados · 2024—presente",
+      "items": [
+        { "title": "Sistemas em Movimento", "code": "agua-viva-oop", "kind": "Backend em produção", "stack": "Java · PostgreSQL", "year": 2025 },
+        { "title": "Rotas em Fluxo", "code": "tec_heuristica", "kind": "Estudo de otimização", "stack": "Python · CVRPTW", "year": 2025 },
+        { "title": "Tensão de Superfície", "code": "jotavsevla-portfolio", "kind": "Exercício de frontend", "stack": "TypeScript · Vite", "year": 2025 },
+        { "title": "Anotações de Campo", "code": "OSA-projects", "kind": "Sistemas operacionais", "stack": "C · IFNMG", "year": 2024 },
+        { "title": "Ecos em Código", "code": "tbo", "kind": "Algoritmos", "stack": "C++", "year": 2024 },
+        { "title": "Camadas de Pressão", "code": "aguaVIVA", "kind": "Procedures armazenadas", "stack": "PL/pgSQL", "year": 2024 }
+      ]
+    },
+    "stack": {
+      "section_title": "Stack",
+      "section_meta": "Em uso diário"
+    },
+    "trajectory": {
+      "section_title": "Trajetória",
+      "section_meta": "Arquivo"
+    },
+    "education": {
+      "section_title": "Formação",
+      "languages_title": "Idiomas"
+    },
+    "contact": {
+      "section_title": "Entre em contato",
+      "section_meta": "Aceitando conversas · 2026",
+      "mail_prefix_em": "Escreva",
+      "mail_prefix_to": "para"
+    },
+    "footer": {
+      "version": "v0.2.0 · editorial cream"
+    }
   }
 }

@@ -96,5 +96,59 @@
     "error": "Error loading",
     "language": "EN",
     "close": "Close"
+  },
+  "poc2": {
+    "nav": {
+      "role_line": "Backend Developer · Currently in accounting IT, open to new opportunities",
+      "works": "Featured Works",
+      "archive": "Archive",
+      "about": "About",
+      "contact": "Contact",
+      "copy_email": "Copy email",
+      "copied": "Copied ·"
+    },
+    "spine": {
+      "issue": "Issue",
+      "coll": "Coll."
+    },
+    "hero": {
+      "caption_pre": "— A study in",
+      "caption_em": "backend systems",
+      "caption_post": ", presented as six layers of work.",
+      "bio": "I design and build server-side systems with a focus on testability, integrity, and the quiet craft of well-named code. Currently based in Brazil — open to conversations worldwide."
+    },
+    "works": {
+      "section_title": "Featured Works",
+      "section_meta": "Selected · 2024—present",
+      "items": [
+        { "title": "Moving Systems", "code": "agua-viva-oop", "kind": "Production backend", "stack": "Java · PostgreSQL", "year": 2025 },
+        { "title": "Routes in Flux", "code": "tec_heuristica", "kind": "Optimization study", "stack": "Python · CVRPTW", "year": 2025 },
+        { "title": "Surface Tension", "code": "jotavsevla-portfolio", "kind": "Frontend exercise", "stack": "TypeScript · Vite", "year": 2025 },
+        { "title": "Field Notes", "code": "OSA-projects", "kind": "Operating systems", "stack": "C · IFNMG", "year": 2024 },
+        { "title": "Echoes in Code", "code": "tbo", "kind": "Algorithms", "stack": "C++", "year": 2024 },
+        { "title": "Pressure Layers", "code": "aguaVIVA", "kind": "Stored procedures", "stack": "PL/pgSQL", "year": 2024 }
+      ]
+    },
+    "stack": {
+      "section_title": "Stack",
+      "section_meta": "In daily rotation"
+    },
+    "trajectory": {
+      "section_title": "Trajectory",
+      "section_meta": "Archive"
+    },
+    "education": {
+      "section_title": "Education",
+      "languages_title": "Languages"
+    },
+    "contact": {
+      "section_title": "Get in touch",
+      "section_meta": "Open to briefs · 2026",
+      "mail_prefix_em": "Write",
+      "mail_prefix_to": "to"
+    },
+    "footer": {
+      "version": "v0.2.0 · editorial cream"
+    }
   }
 }

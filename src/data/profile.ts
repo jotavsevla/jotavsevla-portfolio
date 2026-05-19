@@ -40,8 +40,19 @@ export const skillGroups = [
 
 export const experiences = [
   {
-    role: 'Atendente de Suporte ao Cliente – Mercado Livre (AeC, CLT)',
-    period: '06/2024 - 12/2025',
+    role: 'Desenvolvedor Backend — TI Interno · Setor Contábil',
+    period: '01/2026 — Atual',
+    location: 'Montes Claros, MG',
+    bullets: [
+      'Desenvolvimento de sistemas internos para operação contábil.',
+      'Automação de processos repetitivos com RPA, reduzindo tempo manual significativamente.',
+      'Construção e manutenção de microserviços em arquitetura distribuída.',
+      'Integração entre sistemas legados e novos pipelines.',
+    ],
+  },
+  {
+    role: 'Atendente de Suporte ao Cliente — Mercado Livre (AeC, CLT)',
+    period: '06/2024 — 12/2025',
     location: 'Montes Claros, MG',
     bullets: [
       'Atendimento receptivo em sistema de tickets com média de 30 atendimentos por dia.',

@@ -134,15 +134,73 @@
     },
     "stack": {
       "section_title": "Stack",
-      "section_meta": "In daily rotation"
+      "section_meta": "In daily rotation",
+      "groups": [
+        { "title": "Main stack", "items": ["Java (21 and 25)", "JDBC", "PostgreSQL", "SQL", "REST APIs", "Docker Compose"] },
+        { "title": "Quality", "items": ["TDD", "JUnit 5", "pytest", "Integration tests", "Relational modeling"] },
+        { "title": "Fundamentals", "items": ["Data structures", "Algorithms", "Searching & sorting", "Heuristics"] },
+        { "title": "Currently learning", "items": ["CI/CD with GitHub Actions", "Node.js", "Next.js"] }
+      ]
     },
     "trajectory": {
       "section_title": "Trajectory",
-      "section_meta": "Archive"
+      "section_meta": "Archive",
+      "entries": [
+        {
+          "role": "Backend Development Intern — Internal IT · Accounting Sector",
+          "period": "01/2026 — Present",
+          "location": "Montes Claros, MG, Brazil",
+          "bullets": [
+            "Development of internal systems for accounting operations.",
+            "Automation of repetitive workflows with RPA, significantly reducing manual time.",
+            "Building and maintaining microservices in a distributed architecture.",
+            "Integration between legacy systems and new pipelines."
+          ]
+        },
+        {
+          "role": "Customer Support Agent — Mercado Livre (AeC, CLT)",
+          "period": "06/2024 — 12/2025",
+          "location": "Montes Claros, MG, Brazil",
+          "bullets": [
+            "Inbound ticket support averaging 30 cases per day.",
+            "NPS consistently above 30%.",
+            "Initial problem diagnosis before technical escalation.",
+            "Clear communication with customers of different profiles."
+          ]
+        }
+      ]
     },
     "education": {
       "section_title": "Education",
       "languages_title": "Languages"
+    },
+    "education_data": {
+      "course": "Bachelor's in Computer Science",
+      "institution": "IFNMG — Montes Claros",
+      "period": "02/2022 — Present (7th semester)",
+      "subjects": [
+        "Algorithms & Data Structures",
+        "Databases",
+        "Software Engineering",
+        "Computer Architecture",
+        "Artificial Intelligence"
+      ]
+    },
+    "languages_data": [
+      { "name": "Portuguese", "level": "Native" },
+      { "name": "English", "level": "Intermediate" },
+      { "name": "Spanish", "level": "Basic" }
+    ],
+    "cube": {
+      "hint": "drag to rotate · 6 layers",
+      "faces": [
+        { "layer": "L1 · API", "tech": "Java 21 · 25", "detail": "JDBC · REST · OOP" },
+        { "layer": "L2 · Data", "tech": "PostgreSQL", "detail": "advanced SQL · modeling" },
+        { "layer": "L3 · Quality", "tech": "TDD", "detail": "JUnit 5 · integration" },
+        { "layer": "L4 · Runtime", "tech": "Docker Compose", "detail": "reproducibility" },
+        { "layer": "L5 · Solver", "tech": "Python · CVRPTW", "detail": "logistics optimization" },
+        { "layer": "L0 · Build", "tech": "Maven · CI", "detail": "pipelines · GH Actions" }
+      ]
     },
     "contact": {
       "section_title": "Get in touch",

@@ -1,28 +1,20 @@
 import { useEffect, useRef, useState } from 'react';
 import './stack-cube.css';
 
-interface CubeFace {
+export interface CubeFace {
   layer: string;
   tech: string;
   detail: string;
-  accent?: string;
 }
-
-const FACES: CubeFace[] = [
-  { layer: 'L1 · API', tech: 'Java 21 · 25', detail: 'JDBC · REST · OOP' },
-  { layer: 'L2 · Data', tech: 'PostgreSQL', detail: 'SQL avançado · modelagem' },
-  { layer: 'L3 · Quality', tech: 'TDD', detail: 'JUnit 5 · integração' },
-  { layer: 'L4 · Runtime', tech: 'Docker Compose', detail: 'reprodutibilidade' },
-  { layer: 'L5 · Solver', tech: 'Python · CVRPTW', detail: 'otimização logística' },
-  { layer: 'L0 · Build', tech: 'Maven · CI', detail: 'pipelines · GH Actions' },
-];
 
 interface StackCubeProps {
   size?: number;
   variant?: 'roxo' | 'cream';
+  faces: CubeFace[];
+  hint?: string;
 }
 
-export function StackCube({ size = 280, variant = 'roxo' }: StackCubeProps) {
+export function StackCube({ size = 280, variant = 'roxo', faces, hint }: StackCubeProps) {
   const cubeRef = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
   const dragState = useRef({ active: false, lastX: 0, lastY: 0, rx: -22, ry: -32 });
@@ -73,8 +65,8 @@ export function StackCube({ size = 280, variant = 'roxo' }: StackCubeProps) {
     >
       <div className="stack-cube__scene" style={{ '--cube-size': `${size}px` } as React.CSSProperties}>
         <div className="stack-cube__cube" ref={cubeRef}>
-          {FACES.map((face, idx) => (
-            <div className={`stack-cube__face stack-cube__face--${idx}`} key={face.layer}>
+          {faces.map((face, idx) => (
+            <div className={`stack-cube__face stack-cube__face--${idx}`} key={`${face.layer}-${idx}`}>
               <span className="stack-cube__layer">{face.layer}</span>
               <span className="stack-cube__tech">{face.tech}</span>
               <span className="stack-cube__detail">{face.detail}</span>
@@ -84,7 +76,7 @@ export function StackCube({ size = 280, variant = 'roxo' }: StackCubeProps) {
         </div>
       </div>
       <div className="stack-cube__shadow" aria-hidden="true" />
-      <p className="stack-cube__hint" aria-hidden="true">drag to rotate · {FACES.length} layers</p>
+      {hint ? <p className="stack-cube__hint" aria-hidden="true">{hint}</p> : null}
     </div>
   );
 }

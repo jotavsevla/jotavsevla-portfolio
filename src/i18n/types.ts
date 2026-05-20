@@ -120,14 +120,32 @@ export interface TranslationDict {
     stack: {
       section_title: string;
       section_meta: string;
+      groups: { title: string; items: string[] }[];
     };
     trajectory: {
       section_title: string;
       section_meta: string;
+      entries: {
+        role: string;
+        period: string;
+        location: string;
+        bullets: string[];
+      }[];
     };
     education: {
       section_title: string;
       languages_title: string;
+    };
+    education_data: {
+      course: string;
+      institution: string;
+      period: string;
+      subjects: string[];
+    };
+    languages_data: { name: string; level: string }[];
+    cube: {
+      hint: string;
+      faces: { layer: string; tech: string; detail: string }[];
     };
     contact: {
       section_title: string;

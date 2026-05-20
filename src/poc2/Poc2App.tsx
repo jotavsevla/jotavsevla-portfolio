@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { profileData, skillGroups, experiences, education, languages } from '../data/profile';
+import { profileData } from '../data/profile';
 import { useLanguage } from '../i18n/context';
 import { StackCube } from '../poc-shared/StackCube';
 import { CursorDot } from '../poc-shared/CursorDot';
@@ -127,7 +127,7 @@ export function Poc2App() {
               <p className="poc2-hero__bio-footnote">{t.hero.bio_footnote}</p>
             </div>
             <div className="poc2-hero__cube">
-              <StackCube size={260} variant="cream" />
+              <StackCube size={260} variant="cream" faces={t.cube.faces} hint={t.cube.hint} />
             </div>
           </div>
         </div>
@@ -168,7 +168,7 @@ export function Poc2App() {
           <span className="poc2-section__meta">{t.stack.section_meta}</span>
         </div>
         <div className="poc2-stack">
-          {skillGroups.map((g, i) => (
+          {t.stack.groups.map((g, i) => (
             <article className="poc2-stack__card" key={g.title}>
               <header>
                 <span className="poc2-stack__num">{String(i + 1).padStart(2, '0')}</span>
@@ -192,7 +192,7 @@ export function Poc2App() {
           <span className="poc2-section__meta">{t.trajectory.section_meta}</span>
         </div>
         <div className="poc2-traj">
-          {experiences.map((e) => (
+          {t.trajectory.entries.map((e) => (
             <article className="poc2-traj__row" key={e.role}>
               <div className="poc2-traj__period">{e.period}</div>
               <div className="poc2-traj__body">
@@ -215,10 +215,10 @@ export function Poc2App() {
             <h2>{t.education.section_title}</h2>
           </div>
           <article className="poc2-edu">
-            <h3>{education.course}</h3>
-            <p>{education.institution} · {education.period}</p>
+            <h3>{t.education_data.course}</h3>
+            <p>{t.education_data.institution} · {t.education_data.period}</p>
             <ul>
-              {education.subjects.map((s) => <li key={s}>{s}</li>)}
+              {t.education_data.subjects.map((s) => <li key={s}>{s}</li>)}
             </ul>
           </article>
         </div>
@@ -228,7 +228,7 @@ export function Poc2App() {
             <h2>{t.education.languages_title}</h2>
           </div>
           <ul className="poc2-langs">
-            {languages.map((l) => (
+            {t.languages_data.map((l) => (
               <li key={l.name}>
                 <span>{l.name}</span>
                 <span>{l.level}</span>

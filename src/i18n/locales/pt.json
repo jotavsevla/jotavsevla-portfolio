@@ -134,15 +134,73 @@
     },
     "stack": {
       "section_title": "Stack",
-      "section_meta": "Em uso diário"
+      "section_meta": "Em uso diário",
+      "groups": [
+        { "title": "Stack principal", "items": ["Java (21 e 25)", "JDBC", "PostgreSQL", "SQL", "REST APIs", "Docker Compose"] },
+        { "title": "Qualidade", "items": ["TDD", "JUnit 5", "pytest", "Testes de integração", "Modelagem relacional"] },
+        { "title": "Fundamentos", "items": ["Estruturas de dados", "Algoritmos", "Busca e ordenação", "Heurísticas"] },
+        { "title": "Aprendendo agora", "items": ["CI/CD com GitHub Actions", "Node.js", "Next.js"] }
+      ]
     },
     "trajectory": {
       "section_title": "Trajetória",
-      "section_meta": "Arquivo"
+      "section_meta": "Arquivo",
+      "entries": [
+        {
+          "role": "Estagiário de Desenvolvimento Backend — TI Interno · Setor Contábil",
+          "period": "01/2026 — Atual",
+          "location": "Montes Claros, MG",
+          "bullets": [
+            "Desenvolvimento de sistemas internos para operação contábil.",
+            "Automação de processos repetitivos com RPA, reduzindo tempo manual significativamente.",
+            "Construção e manutenção de microserviços em arquitetura distribuída.",
+            "Integração entre sistemas legados e novos pipelines."
+          ]
+        },
+        {
+          "role": "Atendente de Suporte ao Cliente — Mercado Livre (AeC, CLT)",
+          "period": "06/2024 — 12/2025",
+          "location": "Montes Claros, MG",
+          "bullets": [
+            "Atendimento receptivo em sistema de tickets com média de 30 atendimentos por dia.",
+            "NPS consistentemente acima de 30%.",
+            "Diagnóstico inicial de problemas antes do escalonamento técnico.",
+            "Comunicação clara com clientes de diferentes perfis."
+          ]
+        }
+      ]
     },
     "education": {
       "section_title": "Formação",
       "languages_title": "Idiomas"
+    },
+    "education_data": {
+      "course": "Bacharelado em Ciência da Computação",
+      "institution": "IFNMG — Montes Claros",
+      "period": "02/2022 — Atual (7º período)",
+      "subjects": [
+        "Algoritmos e Estruturas de Dados",
+        "Banco de Dados",
+        "Engenharia de Software",
+        "Arquitetura de Computadores",
+        "Inteligência Artificial"
+      ]
+    },
+    "languages_data": [
+      { "name": "Português", "level": "Nativo" },
+      { "name": "Inglês", "level": "Intermediário" },
+      { "name": "Espanhol", "level": "Básico" }
+    ],
+    "cube": {
+      "hint": "arraste para girar · 6 camadas",
+      "faces": [
+        { "layer": "L1 · API", "tech": "Java 21 · 25", "detail": "JDBC · REST · OOP" },
+        { "layer": "L2 · Dados", "tech": "PostgreSQL", "detail": "SQL avançado · modelagem" },
+        { "layer": "L3 · Qualidade", "tech": "TDD", "detail": "JUnit 5 · integração" },
+        { "layer": "L4 · Runtime", "tech": "Docker Compose", "detail": "reprodutibilidade" },
+        { "layer": "L5 · Solver", "tech": "Python · CVRPTW", "detail": "otimização logística" },
+        { "layer": "L0 · Build", "tech": "Maven · CI", "detail": "pipelines · GH Actions" }
+      ]
     },
     "contact": {
       "section_title": "Entre em contato",

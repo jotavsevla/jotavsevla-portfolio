@@ -349,14 +349,6 @@
 }
 
 /* ── Pull quote (black bar + colored bar) ────────────────────── */
-/* Override generic fade-up reveal — this block has its own choreography.
-   We only neutralize the global translateY/opacity rule; the grid transition
-   below is the real animation. */
-.poc2-pullquote[data-reveal] {
-  opacity: 1;
-  transform: none;
-}
-
 .poc2-pullquote {
   display: grid;
   grid-template-columns: 1fr;
@@ -364,15 +356,8 @@
   border-bottom: 1px solid var(--line);
 }
 
-/* Desktop: start with the black panel taking the full row, then collapse */
 @media (min-width: 760px) {
-  .poc2-pullquote {
-    grid-template-columns: 1fr 0fr;
-    transition: grid-template-columns 1100ms cubic-bezier(0.65, 0, 0.2, 1) !important;
-  }
-  .poc2-pullquote.is-in-view {
-    grid-template-columns: minmax(220px, 30%) 1fr;
-  }
+  .poc2-pullquote { grid-template-columns: minmax(220px, 30%) 1fr; }
 }
 
 .poc2-pullquote__author {
@@ -383,27 +368,18 @@
   grid-template-rows: 1fr auto;
   gap: 2rem;
   position: relative;
-  /* Smoothly cross-fade the role line when the panel shrinks */
-  overflow: hidden;
-  min-width: 0;
 }
 
 .poc2-pullquote__open {
   font-size: clamp(3.5rem, 7vw, 6rem);
   line-height: 0.7;
   color: #fff;
-  transition: transform 900ms cubic-bezier(0.65, 0, 0.2, 1) 200ms;
-}
-
-.poc2-pullquote.is-in-view .poc2-pullquote__open {
-  transform: scale(0.92);
 }
 
 .poc2-pullquote__author-name {
   font-size: 1rem;
   font-weight: 500;
   color: #fff;
-  white-space: nowrap;
 }
 
 .poc2-pullquote__author-role {
@@ -413,12 +389,6 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-top: 0.35rem;
-  opacity: 0;
-  transition: opacity 600ms ease 700ms;
-}
-
-.poc2-pullquote.is-in-view .poc2-pullquote__author-role {
-  opacity: 1;
 }
 
 .poc2-pullquote__body {
@@ -426,8 +396,6 @@
   padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
   display: flex;
   align-items: center;
-  overflow: hidden;
-  min-width: 0;
 }
 
 .poc2-pullquote__text {
@@ -437,29 +405,6 @@
   letter-spacing: -0.02em;
   color: var(--ink);
   max-width: 32ch;
-  opacity: 0;
-  transform: translateX(32px);
-  transition:
-    opacity 800ms cubic-bezier(0.2, 0.6, 0.2, 1) 550ms,
-    transform 900ms cubic-bezier(0.2, 0.6, 0.2, 1) 550ms;
-}
-
-.poc2-pullquote.is-in-view .poc2-pullquote__text {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Mobile: stays in stacked layout, no column animation — just reveal text */
-@media (max-width: 759px) {
-  .poc2-pullquote__text {
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 600ms ease 200ms, transform 600ms ease 200ms;
-  }
-  .poc2-pullquote.is-in-view .poc2-pullquote__text {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* ── Chapter band (full-width colored, like 01 Tools) ────────── */
@@ -1266,54 +1211,18 @@
   will-change: transform;
 }
 
-/* ── Reveal-on-scroll (subtle fade-up) ───────────────────────── */
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity 700ms cubic-bezier(0.2, 0.6, 0.2, 1),
-    transform 700ms cubic-bezier(0.2, 0.6, 0.2, 1);
-  transition-delay: var(--reveal-delay, 0ms);
-  will-change: opacity, transform;
-}
-
-[data-reveal].is-in-view {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Chapter band reveal: also clip the giant number for a "card flip" feel */
-.poc2-chapter[data-reveal] .poc2-chapter__num {
-  opacity: 0;
-  transform: translateY(40px) scale(0.94);
-  transition: opacity 800ms cubic-bezier(0.2, 0.7, 0.2, 1),
-              transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
-  transition-delay: 120ms;
-}
-
-.poc2-chapter[data-reveal].is-in-view .poc2-chapter__num {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.poc2-chapter[data-reveal] .poc2-chapter__bullets li {
-  opacity: 0;
-  transform: translateX(-12px);
-  transition: opacity 500ms ease, transform 500ms ease;
-  transition-delay: 0ms;
-}
-
-.poc2-chapter[data-reveal].is-in-view .poc2-chapter__bullets li:nth-child(1) { transition-delay: 320ms; opacity: 1; transform: translateX(0); }
-.poc2-chapter[data-reveal].is-in-view .poc2-chapter__bullets li:nth-child(2) { transition-delay: 400ms; opacity: 1; transform: translateX(0); }
-.poc2-chapter[data-reveal].is-in-view .poc2-chapter__bullets li:nth-child(3) { transition-delay: 480ms; opacity: 1; transform: translateX(0); }
-.poc2-chapter[data-reveal].is-in-view .poc2-chapter__bullets li:nth-child(4) { transition-delay: 560ms; opacity: 1; transform: translateX(0); }
-
-/* Hero entrance (runs on load, not on observer) */
+/* ── Hero entrance (one-shot on load, NOT scroll-driven) ─────── */
 .poc2-hero__display {
   animation: poc2-hero-rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) 80ms both;
 }
 .poc2-hero__top { animation: poc2-fade 700ms ease 0ms both; }
 .poc2-hero__sub { animation: poc2-fade 700ms ease 380ms both; }
+
+/* ── Chapter number parallax (CSS var driven by JS) ──────────── */
+.poc2-chapter__num {
+  transform: translateY(var(--num-parallax, 0px));
+  will-change: transform;
+}
 
 @keyframes poc2-hero-rise {
   from {
@@ -1345,21 +1254,7 @@
   .poc2-hero__top,
   .poc2-hero__sub { animation: none !important; }
 
-  [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
-  .poc2-pullquote { grid-template-columns: minmax(220px, 30%) 1fr !important; transition: none !important; }
-  .poc2-pullquote__text,
-  .poc2-pullquote__author-role,
-  .poc2-pullquote__open {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-  .poc2-chapter[data-reveal] .poc2-chapter__num,
-  .poc2-chapter[data-reveal] .poc2-chapter__bullets li {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
+  .poc2-chapter__num { transform: none !important; }
   .poc2-progress__bar { transition: none; }
 
   * { transition-duration: 0.01ms !important; }

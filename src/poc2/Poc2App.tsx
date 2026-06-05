@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { profileData } from '../data/profile';
 import { useLanguage } from '../i18n/context';
 import { useActiveSection } from '../poc-shared/useActiveSection';
-import { useReveal } from '../poc-shared/useReveal';
+import { useParallaxRefs } from '../poc-shared/useParallaxRefs';
 import { useScrollProgress } from '../poc-shared/useScrollProgress';
 import { WorkDrawer, type WorkItem } from './WorkDrawer';
 import './poc2.css';
@@ -36,7 +36,7 @@ export function Poc2App() {
   const activeSection = useActiveSection(SECTION_IDS);
   const [openWork, setOpenWork] = useState<WorkItem | null>(null);
   const scrollProgress = useScrollProgress();
-  useReveal('[data-reveal]');
+  useParallaxRefs('.poc2-chapter__num', 36);
 
   // Take first 3 capabilities as "chapters"
   const chapterCapabilities = t.stack.groups.slice(0, 3);
@@ -113,7 +113,7 @@ export function Poc2App() {
       {/* ── Thesis (An inflection point) ────────────────────────────── */}
       <span id="thesis" />
       <div className="poc2-eyebrow">{t.thesis.eyebrow}</div>
-      <section className="poc2-thesis" data-reveal>
+      <section className="poc2-thesis">
         <p className="poc2-thesis__text">
           {t.thesis.pre}<em>{t.thesis.em}</em>{t.thesis.post}
         </p>
@@ -122,7 +122,7 @@ export function Poc2App() {
 
       {/* ── About block ─────────────────────────────────────────────── */}
       <div className="poc2-eyebrow">{t.about.eyebrow}</div>
-      <section className="poc2-about" data-reveal>
+      <section className="poc2-about">
         <p className="poc2-about__lead">{t.about.lead}</p>
         <div className="poc2-about__body">
           {t.about.paragraphs.map((p, i) => <p key={`about-${i}`}>{p}</p>)}
@@ -130,7 +130,7 @@ export function Poc2App() {
       </section>
 
       {/* ── Pull quote ──────────────────────────────────────────────── */}
-      <section className="poc2-pullquote" data-reveal>
+      <section className="poc2-pullquote">
         <div className="poc2-pullquote__author">
           <span className="poc2-pullquote__open" aria-hidden="true">“</span>
           <div>
@@ -146,7 +146,7 @@ export function Poc2App() {
       {/* ── Chapter bands (top 3 capabilities) ──────────────────────── */}
       <span id="stack" />
       {chapterCapabilities.map((cap, i) => (
-        <section className={`poc2-chapter ${CHAPTER_BG[i]}`} key={cap.title} data-reveal>
+        <section className={`poc2-chapter ${CHAPTER_BG[i]}`} key={cap.title}>
           <div className="poc2-chapter__inner">
             <div className="poc2-chapter__num">{String(i + 1).padStart(2, '0')}</div>
             <div className="poc2-chapter__body">
@@ -168,7 +168,7 @@ export function Poc2App() {
           <section className="poc2-traj">
             <div className="poc2-traj__list">
               {otherCapabilities.map((cap, i) => (
-                <div className="poc2-traj__row" key={cap.title} data-reveal>
+                <div className="poc2-traj__row" key={cap.title}>
                   <div className="poc2-traj__period">{String(i + 4).padStart(2, '0')}</div>
                   <div className="poc2-traj__body">
                     <h3>{cap.title}</h3>
@@ -193,7 +193,7 @@ export function Poc2App() {
         </div>
 
         <div className="poc2-works__grid">
-          {t.works.items.map((w, idx) => {
+          {t.works.items.map((w) => {
             const statusLabel = t.works.status[w.status as keyof typeof t.works.status] ?? w.status;
             return (
               <button
@@ -201,8 +201,6 @@ export function Poc2App() {
                 className="poc2-case"
                 key={w.code}
                 onClick={() => setOpenWork(w)}
-                data-reveal
-                style={{ ['--reveal-delay' as string]: `${idx * 70}ms` }}
               >
                 <div className={`poc2-case__media poc2-case__media--${w.status}`}>
                   <span className="poc2-case__media-label">{statusLabel}</span>
@@ -236,7 +234,7 @@ export function Poc2App() {
           {t.trajectory.entries.map((e, i) => {
             const isCurrent = i === 0;
             return (
-              <article className={`poc2-traj__row ${isCurrent ? 'poc2-traj__row--current' : ''}`} key={e.role} data-reveal>
+              <article className={`poc2-traj__row ${isCurrent ? 'poc2-traj__row--current' : ''}`} key={e.role}>
                 <div className="poc2-traj__period">
                   {isCurrent ? <span className="poc2-traj__now">{t.trajectory.now_label}</span> : null}
                   {e.period}
@@ -257,7 +255,7 @@ export function Poc2App() {
 
       {/* ── Education / Languages ──────────────────────────────────── */}
       <div className="poc2-eyebrow">{t.education.eyebrow}</div>
-      <section className="poc2-edu-block" data-reveal>
+      <section className="poc2-edu-block">
         <div className="poc2-edu">
           <h2 className="poc2-edu__title">{t.education.section_title}</h2>
           <article>
@@ -282,16 +280,11 @@ export function Poc2App() {
       </section>
 
       {/* ── Stats ───────────────────────────────────────────────────── */}
-      <section className="poc2-stats" aria-label={t.stats.aria} data-reveal>
+      <section className="poc2-stats" aria-label={t.stats.aria}>
         <div className="poc2-stats__inner">
           <p className="poc2-stats__lead">{t.stats.lead}</p>
-          {t.stats.items.map((stat, idx) => (
-            <article
-              className="poc2-stat"
-              key={stat.label}
-              data-reveal
-              style={{ ['--reveal-delay' as string]: `${100 + idx * 90}ms` }}
-            >
+          {t.stats.items.map((stat) => (
+            <article className="poc2-stat" key={stat.label}>
               <div className="poc2-stat__value">{stat.value}</div>
               <div className="poc2-stat__label">{stat.label}</div>
             </article>
@@ -301,7 +294,7 @@ export function Poc2App() {
 
       {/* ── Contact ─────────────────────────────────────────────────── */}
       <div className="poc2-eyebrow" id="contact">{t.contact.eyebrow}</div>
-      <section className="poc2-contact" data-reveal>
+      <section className="poc2-contact">
         <div className="poc2-contact__head">
           <h2 className="poc2-contact__title">{t.contact.section_title}</h2>
           <span className="poc2-works__meta">{t.contact.section_meta}</span>
@@ -317,7 +310,7 @@ export function Poc2App() {
       </section>
 
       {/* ── Footer ──────────────────────────────────────────────────── */}
-      <footer className="poc2-foot" data-reveal>
+      <footer className="poc2-foot">
         <div className="poc2-foot__inner">
           <p className="poc2-foot__display">João Victor Araújo 2026</p>
 

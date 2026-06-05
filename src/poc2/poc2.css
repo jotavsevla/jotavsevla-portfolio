@@ -348,16 +348,18 @@
   text-underline-offset: 3px;
 }
 
-/* ── Pull quote (black bar + colored bar) ────────────────────── */
+/* ── Pull quote (black bar + colored bar) ─────────────────────
+   Desktop: mint covers the full band (always visible). The black
+   author panel is absolutely positioned and slides in from the
+   left as the user scrolls the section into view. Quote text is
+   never hidden — only the author "seal" arrives.
+*/
 .poc2-pullquote {
-  display: grid;
-  grid-template-columns: 1fr;
+  position: relative;
+  background: var(--mint);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-}
-
-@media (min-width: 760px) {
-  .poc2-pullquote { grid-template-columns: minmax(220px, 30%) 1fr; }
+  overflow: hidden;
 }
 
 .poc2-pullquote__author {
@@ -367,7 +369,45 @@
   display: grid;
   grid-template-rows: 1fr auto;
   gap: 2rem;
-  position: relative;
+}
+
+.poc2-pullquote__body {
+  background: transparent;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 759px) {
+  /* Mobile: stack — author panel on top, quote below, no slide */
+  .poc2-pullquote {
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+}
+
+@media (min-width: 760px) {
+  .poc2-pullquote {
+    display: block;
+    min-height: clamp(220px, 28vw, 320px);
+  }
+
+  .poc2-pullquote__author {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: clamp(220px, 30%, 32%);
+    height: 100%;
+    z-index: 2;
+    transform: translate3d(var(--pq-author-x, -100%), 0, 0);
+    transition: transform 80ms linear;
+    will-change: transform;
+  }
+
+  .poc2-pullquote__body {
+    padding-left: calc(clamp(220px, 30%, 32%) + clamp(1.5rem, 3vw, 2.5rem));
+    min-height: clamp(220px, 28vw, 320px);
+  }
 }
 
 .poc2-pullquote__open {
@@ -389,13 +429,6 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-top: 0.35rem;
-}
-
-.poc2-pullquote__body {
-  background: var(--mint);
-  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
-  display: flex;
-  align-items: center;
 }
 
 .poc2-pullquote__text {
@@ -1255,6 +1288,7 @@
   .poc2-hero__sub { animation: none !important; }
 
   .poc2-chapter__num { transform: none !important; }
+  .poc2-pullquote__author { transform: translate3d(0, 0, 0) !important; }
   .poc2-progress__bar { transition: none; }
 
   * { transition-duration: 0.01ms !important; }

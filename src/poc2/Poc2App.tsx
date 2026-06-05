@@ -3,6 +3,7 @@ import { profileData } from '../data/profile';
 import { useLanguage } from '../i18n/context';
 import { useActiveSection } from '../poc-shared/useActiveSection';
 import { useParallaxRefs } from '../poc-shared/useParallaxRefs';
+import { usePullquoteSlide } from '../poc-shared/usePullquoteSlide';
 import { useScrollProgress } from '../poc-shared/useScrollProgress';
 import { WorkDrawer, type WorkItem } from './WorkDrawer';
 import './poc2.css';
@@ -37,6 +38,7 @@ export function Poc2App() {
   const [openWork, setOpenWork] = useState<WorkItem | null>(null);
   const scrollProgress = useScrollProgress();
   useParallaxRefs('.poc2-chapter__num', 36);
+  usePullquoteSlide();
 
   // Take first 3 capabilities as "chapters"
   const chapterCapabilities = t.stack.groups.slice(0, 3);

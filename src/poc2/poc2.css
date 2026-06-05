@@ -164,6 +164,39 @@
   justify-content: flex-end;
 }
 
+.poc2-hero__avatar {
+  position: absolute;
+  top: clamp(2rem, 5vw, 4rem);
+  right: var(--pad-x);
+  width: clamp(96px, 14vw, 180px);
+  height: clamp(96px, 14vw, 180px);
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0;
+  background: var(--ink);
+  border: 2px solid var(--ink);
+  box-shadow: 0 12px 40px -16px rgba(12, 12, 12, 0.4);
+  z-index: 2;
+  animation: poc2-fade 700ms ease 220ms both;
+}
+
+.poc2-hero__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 760px) {
+  .poc2-hero__avatar {
+    top: 1.2rem;
+    right: 1.1rem;
+    width: 72px;
+    height: 72px;
+    border-width: 1.5px;
+  }
+}
+
 .poc2-hero__inner {
   display: grid;
   grid-template-columns: 1fr;
@@ -183,6 +216,13 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--ink);
+}
+
+@media (min-width: 760px) {
+  /* leave room for the avatar in the top-right */
+  .poc2-hero__top {
+    padding-right: clamp(120px, 17vw, 220px);
+  }
 }
 
 .poc2-hero__caption {
@@ -440,19 +480,45 @@
   max-width: 32ch;
 }
 
-/* ── Chapter band (full-width colored, like 01 Tools) ────────── */
+/* ── Chapter band (full-width colored, like 01 Tools) ──────────
+   Each band stays on the cream base; a colored ::before layer slides
+   in from the side (alternating L/R via the JS-driven custom prop
+   `--chap-translate-x`), giving the impression of proposals being
+   dealt onto the page. Text is always legible — on cream first, on
+   color afterwards (both have sufficient contrast). */
 .poc2-chapter {
-  background: var(--orange);
+  --chap-color: var(--orange);
+  position: relative;
+  background: var(--bg);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   color: var(--ink);
   display: grid;
   grid-template-columns: 1fr;
   padding: 0;
+  overflow: hidden;
+  isolation: isolate;
 }
 
-.poc2-chapter--lilac { background: var(--lilac); }
-.poc2-chapter--mint { background: var(--mint); }
+.poc2-chapter--lilac { --chap-color: var(--lilac); }
+.poc2-chapter--mint { --chap-color: var(--mint); }
+
+.poc2-chapter::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--chap-color);
+  transform: translate3d(var(--chap-translate-x, -100%), 0, 0);
+  transition: transform 80ms linear;
+  will-change: transform;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.poc2-chapter > .poc2-chapter__inner {
+  position: relative;
+  z-index: 1;
+}
 
 .poc2-chapter__inner {
   display: grid;
@@ -1288,6 +1354,7 @@
   .poc2-hero__sub { animation: none !important; }
 
   .poc2-chapter__num { transform: none !important; }
+  .poc2-chapter::before { transform: translate3d(0, 0, 0) !important; }
   .poc2-pullquote__author { transform: translate3d(0, 0, 0) !important; }
   .poc2-progress__bar { transition: none; }
 

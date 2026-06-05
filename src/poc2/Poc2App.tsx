@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { profileData } from '../data/profile';
 import { useLanguage } from '../i18n/context';
 import { useActiveSection } from '../poc-shared/useActiveSection';
+import { useChapterFill } from '../poc-shared/useChapterFill';
 import { useParallaxRefs } from '../poc-shared/useParallaxRefs';
 import { usePullquoteSlide } from '../poc-shared/usePullquoteSlide';
 import { useScrollProgress } from '../poc-shared/useScrollProgress';
@@ -39,6 +40,7 @@ export function Poc2App() {
   const scrollProgress = useScrollProgress();
   useParallaxRefs('.poc2-chapter__num', 36);
   usePullquoteSlide();
+  useChapterFill();
 
   // Take first 3 capabilities as "chapters"
   const chapterCapabilities = t.stack.groups.slice(0, 3);
@@ -89,6 +91,9 @@ export function Poc2App() {
 
       {/* ── Hero ────────────────────────────────────────────────────── */}
       <section className="poc2-hero">
+        <figure className="poc2-hero__avatar" aria-hidden="true">
+          <img src={profileData.avatarUrl} alt="" loading="eager" />
+        </figure>
         <div className="poc2-hero__inner">
           <div className="poc2-hero__top">
             <p className="poc2-hero__caption">{t.hero.caption_top}</p>

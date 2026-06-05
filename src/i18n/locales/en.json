@@ -96,5 +96,286 @@
     "error": "Error loading",
     "language": "EN",
     "close": "Close"
+  },
+  "poc2": {
+    "nav": {
+      "role_line": "Backend · Automation · Open to opportunities",
+      "works": "Works",
+      "stack": "Capabilities",
+      "archive": "Trajectory",
+      "about": "About",
+      "contact": "Contact",
+      "copy_email": "Copy email",
+      "copied": "Copied ·"
+    },
+    "hero": {
+      "status": "Available for opportunities",
+      "display_year": "2026",
+      "caption_top": "How I build backend software: tests first, automation in production, decisions under pressure.",
+      "scroll_to_read": "Scroll to read",
+      "sub_by": "Software engineering intern at Grupo.Con / Doctor.Con, in partnership with IFNMG."
+    },
+    "thesis": {
+      "eyebrow": "An inflection point",
+      "pre": "In 2024, I was learning to code. In 2026, ",
+      "em": "I'm shipping it to production",
+      "post": " — with automations, integrations and CI/CD."
+    },
+    "about": {
+      "eyebrow": "About",
+      "lead": "This portfolio gathers what I've learned shipping backend in production: what I stand for, how I decide, and where I've applied it.",
+      "paragraphs": [
+        "I'm a software engineering intern at Grupo.Con / Doctor.Con (accounting), owning fiscal automations (RPA on the gov.br portal), integrations with tax APIs, data enrichment with generative models, and the company's CI/CD infrastructure.",
+        "Before that, I spent 18 months in customer support for Mercado Livre — 30 cases per day on average, NPS consistently above 30. Before that, I played Rainbow Six Siege professionally for Yeah Gaming and Isurus Gaming, national runner-up in the 2019/20 season.",
+        "I'm a 7th-semester Computer Science student at IFNMG and open to opportunities in test-driven backend, automation or integrations."
+      ]
+    },
+    "stats": {
+      "aria": "Selected metrics",
+      "lead": "This portfolio stands on",
+      "items": [
+        { "value": "02", "label": "systems in production at Grupo.Con" },
+        { "value": "30+", "label": "NPS sustained for 18 months at AeC" },
+        { "value": "7th", "label": "semester, Computer Science" },
+        { "value": "01", "label": "national runner-up (R6 Pro)" }
+      ]
+    },
+    "works": {
+      "section_title": "Selected Works",
+      "section_eyebrow": "Selected projects",
+      "section_meta": "Selected · 2023 — present",
+      "read_more": "Details",
+      "status": {
+        "production": "In production",
+        "academic": "Academic",
+        "personal": "Personal study",
+        "open_source": "Open source"
+      },
+      "items": [
+        {
+          "title": "Água Viva OOP",
+          "code": "agua-viva-oop",
+          "kind": "Logistics backend with route optimization (CVRPTW).",
+          "stack": "OOP backend · relational store · external solver · container orchestration",
+          "status": "personal",
+          "year": 2026,
+          "bullets": [
+            "Decoupled architecture with dedicated solver consumed via REST.",
+            "Full integration test suite against a real DB in tmpfs — no mocks.",
+            "Domain with immutable Value Objects and roles modeled as enums."
+          ]
+        },
+        {
+          "title": "Metaheuristics for Christofides",
+          "code": "tec_heuristica",
+          "kind": "Comparative study of metaheuristics on a Christofides variant.",
+          "stack": "Heuristics · graphs · empirical analysis",
+          "status": "academic",
+          "year": 2025,
+          "bullets": [
+            "ACO, Physarum, Tabu Search and Genetic implemented from scratch.",
+            "Hybrid strategy combining techniques on the hardest instances.",
+            "Comparative analysis: solution quality vs. wall-clock time."
+          ]
+        },
+        {
+          "title": "Algorithms & Data Structures",
+          "code": "algoritmos_e_estrutura_de_dados_em_C",
+          "kind": "From-scratch implementation of classical structures and algorithms.",
+          "stack": "Data structures · algorithms · complexity analysis",
+          "status": "personal",
+          "year": 2024,
+          "bullets": [
+            "Hash tables, trees, linked lists, classical search and sort.",
+            "Study of heuristics applied to optimization problems."
+          ]
+        },
+        {
+          "title": "OSA — File Systems",
+          "code": "OSA-projects",
+          "kind": "B-trees and serialization for optimized disk→memory loading.",
+          "stack": "On-disk structures · serialization · I/O",
+          "status": "academic",
+          "year": 2024,
+          "bullets": []
+        },
+        {
+          "title": "TBO — Search & Sort",
+          "code": "tbo",
+          "kind": "KMP, mergesort, binary search, hash and direct mapping.",
+          "stack": "Classical algorithms · time/space analysis",
+          "status": "academic",
+          "year": 2024,
+          "bullets": []
+        },
+        {
+          "title": "Portfolio",
+          "code": "jotavsevla-portfolio",
+          "kind": "Editorial site about how I work with backend.",
+          "stack": "Editorial frontend · in-house design system · i18n",
+          "status": "open_source",
+          "year": 2026,
+          "bullets": []
+        }
+      ]
+    },
+    "stack": {
+      "section_title": "Capabilities",
+      "section_meta": "How I work — not which frameworks I use",
+      "in_this_chapter": "Applied to:",
+      "also_eyebrow": "Other capabilities",
+      "groups": [
+        {
+          "title": "Test-driven development",
+          "manifesto": "I'd rather write the test first, even if it looks slow. Slow tests find fast bugs. I distrust mocks at critical boundaries and prefer real databases, real integrations, whenever I can.",
+          "contexts": [
+            "TDD in backend, automation and parsing",
+            "Integration against real databases in controlled environments",
+            "Coverage as a consequence, not a target"
+          ]
+        },
+        {
+          "title": "Backend systems",
+          "manifesto": "Well-named code beats a comment. I prefer rich domain with immutable value objects to anemic objects fed by a magic ORM. Relational modeling is part of the design, not an infra detail.",
+          "contexts": [
+            "Use-case-oriented REST APIs",
+            "Modeling with partial indexes, CTEs and views",
+            "Role and state hierarchies modeled as enums"
+          ]
+        },
+        {
+          "title": "Automation & integrations",
+          "manifesto": "A manual task that shows up three times becomes script-worthy. Integration with a public API needs a fallback and a readable log, not just the happy path.",
+          "contexts": [
+            "RPA on government and tax portals",
+            "Integration with fiscal APIs and data enrichment",
+            "Web scraping with a refinement step before persistence"
+          ]
+        },
+        {
+          "title": "Continuous delivery",
+          "manifesto": "Deploy is part of the product. A pipeline nobody understands is a broken pipeline. Logs should speak the language of whoever wakes up at 3am to read them.",
+          "contexts": [
+            "CI pipelines with deploy on push",
+            "Continuous deploy over SSH to VPS",
+            "Reproducible environments via containers"
+          ]
+        },
+        {
+          "title": "Fundamentals",
+          "manifesto": "The right data structure separates a solution from a hack that scales. The right algorithm on the first try saves weeks of rewriting.",
+          "contexts": [
+            "Classical structures and algorithms implemented from scratch",
+            "Heuristics and metaheuristics on NP problems",
+            "Graph algorithms"
+          ]
+        },
+        {
+          "title": "Pressure & communication",
+          "manifesto": "A national runner-up in esports and 18 months handling high-demand customer support taught me to keep my head cool, decide with little information, and translate technical constraints into language for whoever has to call the shot.",
+          "contexts": [
+            "Teams of 5 under competitive pressure",
+            "Technical diagnosis before escalation",
+            "Documentation someone else can use without me"
+          ]
+        }
+      ]
+    },
+    "quote": {
+      "text": "I'd rather write the test first, even if it looks slow. Slow tests find fast bugs.",
+      "attr_role": "on TDD in production, 2026"
+    },
+    "trajectory": {
+      "section_title": "Trajectory",
+      "section_eyebrow": "Trajectory",
+      "section_meta": "Archive · 2019 — present",
+      "now_label": "Now",
+      "entries": [
+        {
+          "role": "Software Engineering Intern — Grupo.Con / Doctor.Con",
+          "period": "03/2026 — Present",
+          "location": "Montes Claros, Brazil · Accounting",
+          "bullets": [
+            "RPA for automated tax document issuance on a government portal, eliminating recurring manual work in the tax department.",
+            "Invoice issuance control flow integrated with a fiscal API.",
+            "Co-authored architecture for enriching registration data with generative models and web scraping, with a refinement step before persistence.",
+            "Owner of CI/CD infrastructure: pipelines with continuous deploy to VPS."
+          ]
+        },
+        {
+          "role": "Customer Support Agent — Mercado Livre",
+          "period": "06/2024 — 12/2025",
+          "location": "AeC (CLT) · Montes Claros, Brazil",
+          "bullets": [
+            "Inbound ticket support averaging 30 cases per day.",
+            "NPS consistently above 30% for 18 months.",
+            "Technical diagnosis before escalation, identifying recurring failure patterns.",
+            "Translating technical constraints into practical solutions across customer profiles."
+          ]
+        },
+        {
+          "role": "Professional Player — Rainbow Six Siege",
+          "period": "06/2019 — 12/2020",
+          "location": "Yeah Gaming / Isurus Gaming · São Paulo, Brazil",
+          "badge": "National runner-up · 2019/2020",
+          "bullets": [
+            "League standings leader for most of the season.",
+            "Team of 5 under competitive pressure, real-time technical communication.",
+            "Step-by-step decision making in a high-variance environment."
+          ]
+        }
+      ]
+    },
+    "education": {
+      "eyebrow": "Education",
+      "section_title": "Academic background",
+      "languages_title": "Languages"
+    },
+    "education_data": {
+      "course": "Bachelor's in Computer Science",
+      "institution": "IFNMG — Montes Claros",
+      "period": "02/2022 — Present (7th semester)",
+      "subjects": [
+        "Algorithms & Data Structures",
+        "Databases",
+        "Software Engineering",
+        "Computer Architecture",
+        "OOP",
+        "Artificial Intelligence",
+        "Discrete Mathematics"
+      ]
+    },
+    "languages_data": [
+      { "name": "Portuguese", "level": "Native" },
+      { "name": "English", "level": "Intermediate" },
+      { "name": "Spanish", "level": "Basic" }
+    ],
+    "contact": {
+      "eyebrow": "Let's talk",
+      "section_title": "Let's talk",
+      "section_meta": "Open to opportunities · 2026",
+      "mail_prefix_em": "Write",
+      "mail_prefix_to": "to"
+    },
+    "footer": {
+      "version": "v1.1",
+      "col_index": "Index",
+      "col_links": "Links",
+      "col_now": "Now",
+      "col_colophon": "Colophon",
+      "now_lines": [
+        "Interning at Grupo.Con",
+        "7th semester CS at IFNMG",
+        "Montes Claros, Brazil"
+      ],
+      "colophon": "Set in Inter Tight and JetBrains Mono. Built with React and Vite."
+    },
+    "drawer": {
+      "view_repo": "View on GitHub",
+      "close": "Close",
+      "label_stack": "Stack",
+      "label_repo": "Repository",
+      "label_year": "Year"
+    }
   }
 }

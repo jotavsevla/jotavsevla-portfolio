@@ -96,5 +96,286 @@
     "error": "Erro ao carregar",
     "language": "PT",
     "close": "Fechar"
+  },
+  "poc2": {
+    "nav": {
+      "role_line": "Backend · Automação · Aberto a oportunidades",
+      "works": "Projetos",
+      "stack": "Stack",
+      "archive": "Trajetória",
+      "about": "Sobre",
+      "contact": "Contato",
+      "copy_email": "Copiar e-mail",
+      "copied": "Copiado ·"
+    },
+    "hero": {
+      "status": "Disponível para oportunidades",
+      "display_year": "2026",
+      "caption_top": "Como construo software backend: testes primeiro, automação em produção, decisão sob pressão.",
+      "scroll_to_read": "Role para ler",
+      "sub_by": "Estagiário em desenvolvimento de software no Grupo.Con / Doctor.Con, em parceria com IFNMG."
+    },
+    "thesis": {
+      "eyebrow": "Um ponto de inflexão",
+      "pre": "Em 2024, eu estava aprendendo a programar. Em 2026, ",
+      "em": "estou enviando código pra produção",
+      "post": " — com automações, integrações e CI/CD."
+    },
+    "about": {
+      "eyebrow": "Sobre",
+      "lead": "Este portfólio reúne o que aprendi entregando backend em produção: o que defendo, como decido, e onde já apliquei.",
+      "paragraphs": [
+        "Sou estagiário em desenvolvimento de software no Grupo.Con / Doctor.Con (contabilidade), respondendo por automações fiscais (RPA no portal gov.br), integrações com APIs fiscais, enriquecimento de dados com modelos generativos, e pela infraestrutura de CI/CD da empresa.",
+        "Antes disso, passei 18 meses em atendimento ao cliente Mercado Livre — média de 30 atendimentos por dia, NPS consistentemente acima de 30. Antes ainda, joguei Rainbow Six Siege profissionalmente por Yeah Gaming e Isurus Gaming, vice-campeão nacional na temporada 2019/20.",
+        "Hoje estou no 7º período de Ciência da Computação no IFNMG e aberto a oportunidades que envolvam backend orientado a testes, automação ou integrações."
+      ]
+    },
+    "stats": {
+      "aria": "Métricas em destaque",
+      "lead": "Este portfólio se sustenta em",
+      "items": [
+        { "value": "02", "label": "sistemas em produção no Grupo.Con" },
+        { "value": "30+", "label": "NPS sustentado por 18 meses na AeC" },
+        { "value": "7º", "label": "período em Ciência da Computação" },
+        { "value": "01", "label": "vice-campeonato nacional (R6 Pro)" }
+      ]
+    },
+    "works": {
+      "section_title": "Projetos em destaque",
+      "section_eyebrow": "Projetos selecionados",
+      "section_meta": "Selecionados · 2023 — presente",
+      "read_more": "Ver detalhes",
+      "status": {
+        "production": "Em produção",
+        "academic": "Acadêmico",
+        "personal": "Estudo pessoal",
+        "open_source": "Open source"
+      },
+      "items": [
+        {
+          "title": "Água Viva OOP",
+          "code": "agua-viva-oop",
+          "kind": "Backend logístico com otimização de rotas (CVRPTW).",
+          "stack": "Backend orientado a objetos · banco relacional · solver externo · orquestração com containers",
+          "status": "personal",
+          "year": 2026,
+          "bullets": [
+            "Arquitetura desacoplada com solver dedicado consumido via REST.",
+            "Suite completa de testes de integração com banco real em tmpfs — sem mocks.",
+            "Domínio com Value Objects imutáveis e papéis modelados por enum."
+          ]
+        },
+        {
+          "title": "Metaheurísticas para Christofides",
+          "code": "tec_heuristica",
+          "kind": "Estudo comparativo de metaheurísticas em variante do Christofides.",
+          "stack": "Heurísticas · grafos · análise empírica",
+          "status": "academic",
+          "year": 2025,
+          "bullets": [
+            "ACO, Physarum, Tabu Search e Algoritmo Genético implementados from-scratch.",
+            "Estratégia híbrida combinando técnicas em instâncias mais difíceis.",
+            "Análise comparativa entre qualidade da solução e tempo de execução."
+          ]
+        },
+        {
+          "title": "Algoritmos & Estruturas de Dados",
+          "code": "algoritmos_e_estrutura_de_dados_em_C",
+          "kind": "Implementação from-scratch das estruturas e algoritmos clássicos.",
+          "stack": "Estruturas de dados · algoritmos · análise de complexidade",
+          "status": "personal",
+          "year": 2024,
+          "bullets": [
+            "Tabelas hash, árvores, listas encadeadas, busca e ordenação.",
+            "Estudo de heurísticas aplicadas a problemas de otimização."
+          ]
+        },
+        {
+          "title": "OSA — Sistemas de Arquivos",
+          "code": "OSA-projects",
+          "kind": "B-trees e serializações para carregamento otimizado disco→memória.",
+          "stack": "Estruturas em disco · serialização · I/O",
+          "status": "academic",
+          "year": 2024,
+          "bullets": []
+        },
+        {
+          "title": "TBO — Busca e Ordenação",
+          "code": "tbo",
+          "kind": "KMP, mergesort, busca binária, hash e mapeamento direto.",
+          "stack": "Algoritmos clássicos · análise de tempo e memória",
+          "status": "academic",
+          "year": 2024,
+          "bullets": []
+        },
+        {
+          "title": "Portfólio",
+          "code": "jotavsevla-portfolio",
+          "kind": "Site editorial sobre minha forma de trabalhar com backend.",
+          "stack": "Frontend editorial · sistema de design próprio · i18n",
+          "status": "open_source",
+          "year": 2026,
+          "bullets": []
+        }
+      ]
+    },
+    "stack": {
+      "section_title": "Capacidades",
+      "section_meta": "Como eu trabalho — não quais frameworks uso",
+      "in_this_chapter": "Aplicado em:",
+      "also_eyebrow": "Outras capacidades",
+      "groups": [
+        {
+          "title": "Desenvolvimento orientado a testes",
+          "manifesto": "Prefiro escrever o teste primeiro, mesmo que pareça lento. Testes lentos encontram bugs rápidos. Desconfio de mocks em fronteiras críticas e prefiro banco real, integração real, sempre que dá.",
+          "contexts": [
+            "TDD em backend, automação e parsing",
+            "Integração com banco real em ambiente controlado",
+            "Cobertura como consequência, não como meta"
+          ]
+        },
+        {
+          "title": "Sistemas backend",
+          "manifesto": "Código bem nomeado vale mais que comentário. Prefiro domínio rico com value objects imutáveis a anêmico com ORM mágico. Modelagem relacional é parte do design, não detalhe de infra.",
+          "contexts": [
+            "APIs REST orientadas a casos de uso",
+            "Modelagem com índices parciais, CTEs e views",
+            "Hierarquias de papéis e estados via enum"
+          ]
+        },
+        {
+          "title": "Automação & integrações",
+          "manifesto": "Tarefa manual que aparece três vezes vira candidata a script. Integração com API pública precisa de fallback e log legível, não só happy path.",
+          "contexts": [
+            "RPA em portais governamentais e fiscais",
+            "Integração com APIs fiscais e enriquecimento de dados",
+            "Web scraping com etapa de refinamento antes da persistência"
+          ]
+        },
+        {
+          "title": "Entrega contínua",
+          "manifesto": "Deploy é parte do produto. Pipeline que ninguém entende é pipeline quebrado. Logs precisam falar a língua de quem vai acordar às 3h pra olhar.",
+          "contexts": [
+            "Pipelines de CI com deploy em push",
+            "Deploy contínuo via SSH em VPS",
+            "Ambientes reprodutíveis via containers"
+          ]
+        },
+        {
+          "title": "Fundamentos",
+          "manifesto": "Estrutura de dados é o que separa solução de gambiarra que escala. Algoritmo certo na primeira tentativa economiza semanas de reescrita.",
+          "contexts": [
+            "Estruturas e algoritmos clássicos implementados from-scratch",
+            "Heurísticas e metaheurísticas em problemas NP",
+            "Algoritmos em grafos"
+          ]
+        },
+        {
+          "title": "Pressão & comunicação",
+          "manifesto": "Vice-campeonato nacional em e-sports e 18 meses respondendo cliente em alta demanda me ensinaram a manter a cabeça fria, decidir com pouca informação e traduzir restrição técnica em linguagem de quem precisa decidir.",
+          "contexts": [
+            "Times de 5 sob pressão competitiva",
+            "Diagnóstico técnico antes de escalar",
+            "Documentação que outra pessoa entende sem mim"
+          ]
+        }
+      ]
+    },
+    "quote": {
+      "text": "Prefiro escrever o teste primeiro, mesmo que pareça lento. Testes lentos encontram bugs rápidos.",
+      "attr_role": "sobre TDD em produção, 2026"
+    },
+    "trajectory": {
+      "section_title": "Trajetória",
+      "section_eyebrow": "Trajetória",
+      "section_meta": "Arquivo · 2019 — presente",
+      "now_label": "Agora",
+      "entries": [
+        {
+          "role": "Estagiário em Desenvolvimento de Software — Grupo.Con / Doctor.Con",
+          "period": "03/2026 — Atual",
+          "location": "Montes Claros, MG · Contabilidade",
+          "bullets": [
+            "RPA para emissão automatizada de GFD em portal governamental, eliminando tarefa manual recorrente do setor fiscal.",
+            "Sistema de controle de fluxo de emissão de notas fiscais com integração à API fiscal.",
+            "Coautoria da arquitetura de enriquecimento de dados cadastrais com modelos generativos e web scraping, com refinamento antes da persistência.",
+            "Responsável pela infraestrutura de CI/CD: pipelines com deploy contínuo em VPS."
+          ]
+        },
+        {
+          "role": "Atendente de Suporte ao Cliente — Mercado Livre",
+          "period": "06/2024 — 12/2025",
+          "location": "AeC (CLT) · Montes Claros, MG",
+          "bullets": [
+            "Atendimento receptivo via sistema de tickets, média de 30 atendimentos por dia.",
+            "NPS consistentemente acima de 30% por 18 meses.",
+            "Diagnóstico técnico antes de escalar, identificando padrões recorrentes de falha.",
+            "Traduzindo restrições técnicas em soluções práticas para perfis variados."
+          ]
+        },
+        {
+          "role": "Jogador Profissional — Rainbow Six Siege",
+          "period": "06/2019 — 12/2020",
+          "location": "Yeah Gaming / Isurus Gaming · São Paulo, SP",
+          "badge": "Vice-campeão nacional · 2019/2020",
+          "bullets": [
+            "Liderança da classificação em grande parte da temporada.",
+            "Time de 5 sob pressão competitiva, comunicação técnica em tempo real.",
+            "Tomada de decisão por etapas em ambiente de alta variância."
+          ]
+        }
+      ]
+    },
+    "education": {
+      "eyebrow": "Formação",
+      "section_title": "Formação acadêmica",
+      "languages_title": "Idiomas"
+    },
+    "education_data": {
+      "course": "Bacharelado em Ciência da Computação",
+      "institution": "IFNMG — Montes Claros",
+      "period": "02/2022 — Atual (7º período)",
+      "subjects": [
+        "Algoritmos e Estruturas de Dados",
+        "Banco de Dados",
+        "Engenharia de Software",
+        "Arquitetura de Computadores",
+        "POO",
+        "Inteligência Artificial",
+        "Matemática Discreta"
+      ]
+    },
+    "languages_data": [
+      { "name": "Português", "level": "Nativo" },
+      { "name": "Inglês", "level": "Intermediário" },
+      { "name": "Espanhol", "level": "Básico" }
+    ],
+    "contact": {
+      "eyebrow": "Vamos conversar",
+      "section_title": "Vamos conversar",
+      "section_meta": "Aberto a oportunidades · 2026",
+      "mail_prefix_em": "Escreva",
+      "mail_prefix_to": "para"
+    },
+    "footer": {
+      "version": "v1.1",
+      "col_index": "Índice",
+      "col_links": "Links",
+      "col_now": "Agora",
+      "col_colophon": "Cólofon",
+      "now_lines": [
+        "Estagiando no Grupo.Con",
+        "7º período de CC no IFNMG",
+        "Montes Claros, MG"
+      ],
+      "colophon": "Composição em Inter Tight e JetBrains Mono. Construído com React e Vite."
+    },
+    "drawer": {
+      "view_repo": "Ver no GitHub",
+      "close": "Fechar",
+      "label_stack": "Stack",
+      "label_repo": "Repositório",
+      "label_year": "Ano"
+    }
   }
 }

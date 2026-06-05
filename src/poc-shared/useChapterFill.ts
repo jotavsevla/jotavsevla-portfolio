@@ -1,14 +1,18 @@
 import { useEffect } from 'react';
 
 /**
- * Scroll-linked colored fill for chapter bands. Each band starts on the
- * cream background (text fully legible) and the colored layer slides in
- * from the left or right — alternating per chapter — as the section
- * crosses the viewport. Acts like proposals being dealt onto the page.
+ * Scroll-linked entrance for chapter bands. Each band has two halves that
+ * meet in the middle as the section crosses the viewport:
  *
- * The hook sets `--chap-translate-x` on each matched element. CSS uses
- * that value on the band's ::before (the color layer) to translate it
- * from off-screen to its settled position.
+ * - The colored background slides in from one side
+ *   (`--chap-color-x` on the ::before pseudo-element).
+ * - The title + description slide in from the OPPOSITE side
+ *   (`--chap-title-x` on the matching elements).
+ *
+ * Even-indexed chapters fill color from the left and bring text from
+ * the right; odd-indexed chapters mirror that. The giant numeral and
+ * the bullet list stay anchored — they are the user's reference points
+ * while the rest is being dealt onto the page.
  */
 export function useChapterFill(selector: string = '.poc2-chapter') {
   useEffect(() => {
@@ -17,7 +21,10 @@ export function useChapterFill(selector: string = '.poc2-chapter') {
     let nodes = Array.from(document.querySelectorAll<HTMLElement>(selector));
 
     if (prefersReduced) {
-      nodes.forEach((el) => el.style.setProperty('--chap-translate-x', '0%'));
+      nodes.forEach((el) => {
+        el.style.setProperty('--chap-color-x', '0%');
+        el.style.setProperty('--chap-title-x', '0%');
+      });
       return;
     }
 
@@ -33,10 +40,13 @@ export function useChapterFill(selector: string = '.poc2-chapter') {
           0,
           Math.min(1, (triggerStart - rect.top) / (triggerStart - triggerEnd)),
         );
-        // Alternate sides: even index (0, 2) slides from left, odd from right.
+        // Even index (0, 2): color from left, title from right.
+        // Odd index (1):     color from right, title from left.
         const dir = idx % 2 === 0 ? -1 : 1;
-        const x = (1 - progress) * 100 * dir;
-        el.style.setProperty('--chap-translate-x', `${x.toFixed(2)}%`);
+        const colorX = (1 - progress) * 100 * dir;
+        const titleX = (1 - progress) * 100 * -dir;
+        el.style.setProperty('--chap-color-x', `${colorX.toFixed(2)}%`);
+        el.style.setProperty('--chap-title-x', `${titleX.toFixed(2)}%`);
       });
       raf = 0;
     };

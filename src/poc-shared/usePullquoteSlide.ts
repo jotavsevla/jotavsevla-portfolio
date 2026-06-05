@@ -1,19 +1,22 @@
 import { useEffect } from 'react';
 
 /**
- * Drives the pull-quote's black author panel slide-in. Scroll-linked, so
- * the user is always in control — no one-shot reveal that hides content.
+ * Drives both halves of the pull-quote's entrance. Scroll-linked, so the
+ * user is always in control — no one-shot reveal that hides content.
  *
- * - The mint quote panel is always visible (full background).
- * - The black panel translates from -100% (off-screen left) to 0% as the
- *   pull-quote crosses the viewport. Set via CSS custom property
+ * - The black author panel slides in from the LEFT  (-100% → 0%) via
  *   `--pq-author-x` on the section element.
+ * - The mint quote text slides in from the RIGHT (+100% → 0%) via
+ *   `--pq-text-x` on the section element.
  *
- * Trigger window: starts sliding in once the pull-quote top reaches the
- * lower 85% of the viewport, fully settled by the time it reaches the
- * mid-line. Stays settled while inside the viewport.
+ * Both ends meet at the middle as the pullquote settles. The mint
+ * background and structural layout are always present underneath, so
+ * neither content disappears — only the type drifts into place.
+ *
+ * Trigger window: starts when the pullquote top reaches the lower 85%
+ * of the viewport, fully settled by the time it reaches the mid-line.
  */
-export function usePullquoteSlide(selector: string = '.poc2-pullquote', prop = '--pq-author-x') {
+export function usePullquoteSlide(selector: string = '.poc2-pullquote') {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const el = document.querySelector<HTMLElement>(selector);
@@ -21,7 +24,8 @@ export function usePullquoteSlide(selector: string = '.poc2-pullquote', prop = '
 
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) {
-      el.style.setProperty(prop, '0%');
+      el.style.setProperty('--pq-author-x', '0%');
+      el.style.setProperty('--pq-text-x', '0%');
       return;
     }
 
@@ -30,16 +34,16 @@ export function usePullquoteSlide(selector: string = '.poc2-pullquote', prop = '
     const update = () => {
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight;
-      // Below the trigger zone (top of pullquote below 85% of viewport) → -100%.
-      // Past the trigger zone (top reaches 40% of viewport) → 0%.
       const triggerStart = vh * 0.85;
       const triggerEnd = vh * 0.4;
       const progress = Math.max(
         0,
         Math.min(1, (triggerStart - rect.top) / (triggerStart - triggerEnd)),
       );
-      const x = (1 - progress) * -100;
-      el.style.setProperty(prop, `${x.toFixed(2)}%`);
+      const authorX = (1 - progress) * -100;
+      const textX = (1 - progress) * 100;
+      el.style.setProperty('--pq-author-x', `${authorX.toFixed(2)}%`);
+      el.style.setProperty('--pq-text-x', `${textX.toFixed(2)}%`);
       raf = 0;
     };
 
@@ -57,5 +61,5 @@ export function usePullquoteSlide(selector: string = '.poc2-pullquote', prop = '
       window.removeEventListener('resize', update);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, [selector, prop]);
+  }, [selector]);
 }

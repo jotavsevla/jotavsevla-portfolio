@@ -416,6 +416,7 @@
   padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 @media (max-width: 759px) {
@@ -480,6 +481,14 @@
   max-width: 32ch;
 }
 
+@media (min-width: 760px) {
+  .poc2-pullquote__text {
+    transform: translate3d(var(--pq-text-x, 100%), 0, 0);
+    transition: transform 80ms linear;
+    will-change: transform;
+  }
+}
+
 /* ── Chapter band (full-width colored, like 01 Tools) ──────────
    Each band stays on the cream base; a colored ::before layer slides
    in from the side (alternating L/R via the JS-driven custom prop
@@ -508,7 +517,7 @@
   position: absolute;
   inset: 0;
   background: var(--chap-color);
-  transform: translate3d(var(--chap-translate-x, -100%), 0, 0);
+  transform: translate3d(var(--chap-color-x, -100%), 0, 0);
   transition: transform 80ms linear;
   will-change: transform;
   z-index: 0;
@@ -550,6 +559,8 @@
   display: grid;
   gap: 1.5rem;
   align-content: start;
+  /* Clip the title/desc as they slide in from off-axis */
+  overflow: hidden;
 }
 
 .poc2-chapter__title {
@@ -559,6 +570,9 @@
   font-weight: 500;
   color: var(--ink);
   max-width: 18ch;
+  transform: translate3d(var(--chap-title-x, 100%), 0, 0);
+  transition: transform 80ms linear;
+  will-change: transform;
 }
 
 .poc2-chapter__desc {
@@ -566,6 +580,9 @@
   line-height: 1.55;
   color: var(--ink);
   max-width: 50ch;
+  transform: translate3d(var(--chap-title-x, 100%), 0, 0);
+  transition: transform 80ms linear;
+  will-change: transform;
 }
 
 .poc2-chapter__cover-label {
@@ -1355,7 +1372,10 @@
 
   .poc2-chapter__num { transform: none !important; }
   .poc2-chapter::before { transform: translate3d(0, 0, 0) !important; }
-  .poc2-pullquote__author { transform: translate3d(0, 0, 0) !important; }
+  .poc2-chapter__title,
+  .poc2-chapter__desc { transform: translate3d(0, 0, 0) !important; }
+  .poc2-pullquote__author,
+  .poc2-pullquote__text { transform: translate3d(0, 0, 0) !important; }
   .poc2-progress__bar { transition: none; }
 
   * { transition-duration: 0.01ms !important; }

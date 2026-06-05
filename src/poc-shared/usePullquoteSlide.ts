@@ -31,17 +31,29 @@ export function usePullquoteSlide(selector: string = '.poc2-pullquote') {
 
     let raf = 0;
 
+    // Two stages so the panels arrive sequentially:
+    // 0%   → 60%  scroll progress: black author panel slides in from the left.
+    // 60%  → 100% scroll progress: quote text slides in from the right.
+    const HANDOFF = 0.6;
+
+    const remap = (p: number, start: number, end: number) =>
+      Math.max(0, Math.min(1, (p - start) / (end - start)));
+
     const update = () => {
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight;
-      const triggerStart = vh * 0.85;
-      const triggerEnd = vh * 0.4;
+      const triggerStart = vh * 0.9;
+      const triggerEnd = vh * 0.25;
       const progress = Math.max(
         0,
         Math.min(1, (triggerStart - rect.top) / (triggerStart - triggerEnd)),
       );
-      const authorX = (1 - progress) * -100;
-      const textX = (1 - progress) * 100;
+
+      const authorProgress = remap(progress, 0, HANDOFF);
+      const textProgress = remap(progress, HANDOFF, 1);
+      const authorX = (1 - authorProgress) * -100;
+      const textX = (1 - textProgress) * 100;
+
       el.style.setProperty('--pq-author-x', `${authorX.toFixed(2)}%`);
       el.style.setProperty('--pq-text-x', `${textX.toFixed(2)}%`);
       raf = 0;

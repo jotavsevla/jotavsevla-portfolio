@@ -164,6 +164,17 @@
   justify-content: flex-end;
 }
 
+@media (max-width: 760px) {
+  /* Tighten the hero on mobile so the headline + status sit in the
+     first fold without forcing a scroll to reach actual content. */
+  .poc2-hero {
+    min-height: auto;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+    justify-content: flex-start;
+  }
+}
+
 .poc2-hero__avatar {
   position: absolute;
   top: clamp(2rem, 5vw, 4rem);
@@ -188,13 +199,10 @@
 }
 
 @media (max-width: 760px) {
-  .poc2-hero__avatar {
-    top: 1.2rem;
-    right: 1.1rem;
-    width: 72px;
-    height: 72px;
-    border-width: 1.5px;
-  }
+  /* Mobile: hide the avatar entirely — it forced empty space above
+     the name and pushed actual content below the fold. The hero
+     monolithic typography is enough identity on a phone. */
+  .poc2-hero__avatar { display: none; }
 }
 
 .poc2-hero__inner {
@@ -684,23 +692,38 @@
 }
 
 .poc2-case {
+  --case-media-y: 0px;
   display: flex;
   flex-direction: column;
   border: 1px solid var(--line);
   background: var(--bg);
   cursor: pointer;
-  transition: background 220ms ease;
+  transition: background 220ms ease, transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 320ms cubic-bezier(0.2, 0.7, 0.2, 1);
   text-align: left;
   font-family: inherit;
   padding: 0;
   appearance: none;
+  position: relative;
+  z-index: 1;
 }
 
-.poc2-case:hover { background: var(--orange-soft); }
+.poc2-case:hover {
+  background: var(--orange-soft);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px -18px rgba(12, 12, 12, 0.35);
+  z-index: 2;
+}
+
+.poc2-case:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px -18px rgba(12, 12, 12, 0.35);
+}
 
 .poc2-case__media {
+  --media-bg: var(--ink);
   aspect-ratio: 4 / 3;
-  background: var(--ink);
+  background: var(--bg);
   display: flex;
   align-items: end;
   padding: 1rem;
@@ -708,10 +731,42 @@
   overflow: hidden;
 }
 
-.poc2-case__media--production { background: var(--ink); }
-.poc2-case__media--academic { background: var(--lilac); }
-.poc2-case__media--personal { background: var(--mint); }
-.poc2-case__media--open_source { background: var(--orange); }
+/* Colored background layer that parallax-shifts on scroll. Sits
+   below content (label/title) which stays put. We over-extend
+   vertically so the translate never reveals the cream behind. */
+.poc2-case__media::before {
+  content: '';
+  position: absolute;
+  inset: -10% 0;
+  background: var(--media-bg);
+  transform: translate3d(0, var(--case-media-y, 0px), 0);
+  transition: transform 80ms linear;
+  will-change: transform;
+  z-index: 0;
+}
+
+/* Hover scrim: fades a darker overlay on top of the media so the
+   case name reads as "open this" instead of "decorative card". */
+.poc2-case__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(12, 12, 12, 0.55));
+  opacity: 0;
+  transition: opacity 280ms ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.poc2-case:hover .poc2-case__media::after,
+.poc2-case:focus-visible .poc2-case__media::after { opacity: 1; }
+
+.poc2-case__media > * { position: relative; z-index: 2; }
+
+.poc2-case__media--production { --media-bg: var(--ink); }
+.poc2-case__media--academic { --media-bg: var(--lilac); }
+.poc2-case__media--personal { --media-bg: var(--mint); }
+.poc2-case__media--open_source { --media-bg: var(--orange); }
 
 .poc2-case__media-label {
   position: absolute;
@@ -740,12 +795,26 @@
   letter-spacing: -0.02em;
   font-weight: 500;
   color: var(--bg);
+  transition: color 280ms ease, transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .poc2-case__media--academic .poc2-case__media-title,
 .poc2-case__media--personal .poc2-case__media-title,
 .poc2-case__media--open_source .poc2-case__media-title {
   color: var(--ink);
+}
+
+.poc2-case:hover .poc2-case__media-title,
+.poc2-case:focus-visible .poc2-case__media-title {
+  color: var(--orange);
+  transform: translateY(-4px);
+}
+
+/* Open-source card already uses orange as the background — flip
+   the title to white on hover for legibility. */
+.poc2-case:hover .poc2-case__media--open_source .poc2-case__media-title,
+.poc2-case:focus-visible .poc2-case__media--open_source .poc2-case__media-title {
+  color: #fff;
 }
 
 .poc2-case__body {
@@ -1358,9 +1427,7 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Section number tickers (chapter CTA hover etc.) */
-.poc2-case:hover .poc2-case__media-title { transform: translateY(-2px); }
-.poc2-case__media-title { transition: transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+/* (Case hover micro-interactions live next to the case rules above.) */
 
 /* ── Reduced motion ──────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
@@ -1374,6 +1441,11 @@
   .poc2-chapter::before { transform: translate3d(0, 0, 0) !important; }
   .poc2-chapter__title,
   .poc2-chapter__desc { transform: translate3d(0, 0, 0) !important; }
+  .poc2-case__media::before { transform: translate3d(0, 0, 0) !important; }
+  .poc2-case:hover,
+  .poc2-case:focus-visible { transform: none !important; }
+  .poc2-case:hover .poc2-case__media-title,
+  .poc2-case:focus-visible .poc2-case__media-title { transform: none !important; }
   .poc2-pullquote__author,
   .poc2-pullquote__text { transform: translate3d(0, 0, 0) !important; }
   .poc2-progress__bar { transition: none; }

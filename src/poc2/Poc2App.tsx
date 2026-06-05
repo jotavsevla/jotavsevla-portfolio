@@ -39,6 +39,7 @@ export function Poc2App() {
   const [openWork, setOpenWork] = useState<WorkItem | null>(null);
   const scrollProgress = useScrollProgress();
   useParallaxRefs('.poc2-chapter__num', 36);
+  useParallaxRefs('.poc2-case', 22, '--case-media-y');
   usePullquoteSlide();
   useChapterFill();
 

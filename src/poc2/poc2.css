@@ -1189,9 +1189,115 @@
 
 .work-drawer__cta:hover { background: var(--orange); }
 
+/* ── Scroll progress bar (sticky top) ────────────────────────── */
+.poc2-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+  z-index: 40;
+  pointer-events: none;
+}
+
+.poc2-progress__bar {
+  height: 100%;
+  width: 100%;
+  background: var(--orange);
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 120ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: transform;
+}
+
+/* ── Reveal-on-scroll (subtle fade-up) ───────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 700ms cubic-bezier(0.2, 0.6, 0.2, 1),
+    transform 700ms cubic-bezier(0.2, 0.6, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+[data-reveal].is-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Chapter band reveal: also clip the giant number for a "card flip" feel */
+.poc2-chapter[data-reveal] .poc2-chapter__num {
+  opacity: 0;
+  transform: translateY(40px) scale(0.94);
+  transition: opacity 800ms cubic-bezier(0.2, 0.7, 0.2, 1),
+              transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: 120ms;
+}
+
+.poc2-chapter[data-reveal].is-in-view .poc2-chapter__num {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.poc2-chapter[data-reveal] .poc2-chapter__bullets li {
+  opacity: 0;
+  transform: translateX(-12px);
+  transition: opacity 500ms ease, transform 500ms ease;
+  transition-delay: 0ms;
+}
+
+.poc2-chapter[data-reveal].is-in-view .poc2-chapter__bullets li:nth-child(1) { transition-delay: 320ms; opacity: 1; transform: translateX(0); }
+.poc2-chapter[data-reveal].is-in-view .poc2-chapter__bullets li:nth-child(2) { transition-delay: 400ms; opacity: 1; transform: translateX(0); }
+.poc2-chapter[data-reveal].is-in-view .poc2-chapter__bullets li:nth-child(3) { transition-delay: 480ms; opacity: 1; transform: translateX(0); }
+.poc2-chapter[data-reveal].is-in-view .poc2-chapter__bullets li:nth-child(4) { transition-delay: 560ms; opacity: 1; transform: translateX(0); }
+
+/* Hero entrance (runs on load, not on observer) */
+.poc2-hero__display {
+  animation: poc2-hero-rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) 80ms both;
+}
+.poc2-hero__top { animation: poc2-fade 700ms ease 0ms both; }
+.poc2-hero__sub { animation: poc2-fade 700ms ease 380ms both; }
+
+@keyframes poc2-hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(36px);
+    letter-spacing: -0.02em;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: -0.045em;
+  }
+}
+
+@keyframes poc2-fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Section number tickers (chapter CTA hover etc.) */
+.poc2-case:hover .poc2-case__media-title { transform: translateY(-2px); }
+.poc2-case__media-title { transition: transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+
 /* ── Reduced motion ──────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .poc2-hero__sub-dot,
-  .poc2-hero__scroll-arrow { animation: none; }
+  .poc2-hero__scroll-arrow,
+  .poc2-hero__display,
+  .poc2-hero__top,
+  .poc2-hero__sub { animation: none !important; }
+
+  [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .poc2-chapter[data-reveal] .poc2-chapter__num,
+  .poc2-chapter[data-reveal] .poc2-chapter__bullets li {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .poc2-progress__bar { transition: none; }
+
   * { transition-duration: 0.01ms !important; }
 }

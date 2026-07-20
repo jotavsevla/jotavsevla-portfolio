@@ -99,7 +99,7 @@
   },
   "poc2": {
     "nav": {
-      "role_line": "Backend · Automation · Open to opportunities",
+      "role_line": "Backend · Automation · CI/CD · Open to opportunities",
       "works": "Works",
       "stack": "Capabilities",
       "archive": "Trajectory",
@@ -119,15 +119,15 @@
       "eyebrow": "An inflection point",
       "pre": "In 2024, I was learning to code. In 2026, ",
       "em": "I'm shipping it to production",
-      "post": " — with automations, integrations and CI/CD."
+      "post": " — with automations, database modeling, integrations and CI/CD."
     },
     "about": {
       "eyebrow": "About",
       "lead": "This portfolio gathers what I've learned shipping backend in production: what I stand for, how I decide, and where I've applied it.",
       "paragraphs": [
-        "I'm a software engineering intern at Grupo.Con / Doctor.Con (accounting), owning fiscal automations (RPA on the gov.br portal), integrations with tax APIs, data enrichment with generative models, and the company's CI/CD infrastructure.",
+        "I'm a software engineering intern at Grupo.Con / Doctor.Con (accounting), owning fiscal automations in production — RPA for GFD issuance on FGTS Digital, an invoice-issuance control system, and relational cross-referencing of government data to produce information for stakeholders — plus the company's CI/CD infrastructure: pipelines with continuous deploy, containerized environments and secrets kept out of the code.",
         "Before that, I spent 18 months in customer support for Mercado Livre — 30 cases per day on average, NPS consistently above 30. Before that, I played Rainbow Six Siege professionally for Yeah Gaming and Isurus Gaming, national runner-up in the 2019/20 season.",
-        "I'm a 7th-semester Computer Science student at IFNMG and open to opportunities in test-driven backend, automation or integrations."
+        "I'm a 7th-semester Computer Science student at IFNMG and open to opportunities in test-driven backend, database modeling, automation or delivery infrastructure (CI/CD)."
       ]
     },
     "stats": {
@@ -156,13 +156,15 @@
           "title": "Água Viva OOP",
           "code": "agua-viva-oop",
           "kind": "Logistics backend with route optimization (CVRPTW).",
-          "stack": "OOP backend · relational store · external solver · container orchestration",
+          "stack": "OOP backend · relational store with migrations · external solver · CI/CD with local parity",
           "status": "personal",
           "year": 2026,
           "bullets": [
             "Decoupled architecture with dedicated solver consumed via REST.",
             "Full integration test suite against a real DB in tmpfs — no mocks.",
-            "Domain with immutable Value Objects and roles modeled as enums."
+            "Idempotent migrations as the schema's single source of truth; stateless API with per-channel idempotency keys.",
+            "OpenAPI contract as the source of truth, with anti-drift gates and mutation testing on the domain.",
+            "File-based secrets, least-privilege database roles and fail-fast startup in production."
           ]
         },
         {
@@ -193,11 +195,15 @@
         {
           "title": "OSA — File Systems",
           "code": "OSA-projects",
-          "kind": "B-trees and serialization for optimized disk→memory loading.",
-          "stack": "On-disk structures · serialization · I/O",
+          "kind": "From byte to index: serialization, packing, B-Tree and a search engine.",
+          "stack": "On-disk structures · serialization · indexing · I/O",
           "status": "academic",
           "year": 2024,
-          "bullets": []
+          "bullets": [
+            "Record serialization with buffers and packing (fixed-length and delimited).",
+            "Indexing with a B-Tree of configurable order.",
+            "Search engine with inverted index + primary index."
+          ]
         },
         {
           "title": "TBO — Search & Sort",
@@ -206,7 +212,10 @@
           "stack": "Classical algorithms · time/space analysis",
           "status": "academic",
           "year": 2024,
-          "bullets": []
+          "bullets": [
+            "Applied projects: a cinema manager and dictionary search with a spell checker.",
+            "Empirical comparison of sorting algorithms (time and memory)."
+          ]
         },
         {
           "title": "Portfolio",
@@ -240,6 +249,7 @@
           "contexts": [
             "Use-case-oriented REST APIs",
             "Modeling with partial indexes, CTEs and views",
+            "Idempotent migrations as the schema's single source of truth",
             "Role and state hierarchies modeled as enums"
           ]
         },
@@ -254,18 +264,20 @@
         },
         {
           "title": "Continuous delivery",
-          "manifesto": "Deploy is part of the product. A pipeline nobody understands is a broken pipeline. Logs should speak the language of whoever wakes up at 3am to read them.",
+          "manifesto": "Deploy is part of the product. A pipeline nobody understands is a broken pipeline. Logs should speak the language of whoever wakes up at 3am to read them. And secrets don't live in code: they live in files, with the least privilege possible.",
           "contexts": [
             "CI pipelines with deploy on push",
             "Continuous deploy over SSH to VPS",
-            "Reproducible environments via containers"
+            "Reproducible environments via containers",
+            "Secrets out of the code and local↔CI parity via toolchain"
           ]
         },
         {
           "title": "Fundamentals",
-          "manifesto": "The right data structure separates a solution from a hack that scales. The right algorithm on the first try saves weeks of rewriting.",
+          "manifesto": "Computing is ordered, serialized, sequential, relational — it's a lot to learn, but correlating the structures is what turns hard into simple. The right data structure separates a solution from a hack that scales, and there is elegance in that.",
           "contexts": [
             "Classical structures and algorithms implemented from scratch",
+            "Serialization, indexing and B-Trees applied to files",
             "Heuristics and metaheuristics on NP problems",
             "Graph algorithms"
           ]
@@ -296,10 +308,10 @@
           "period": "03/2026 — Present",
           "location": "Montes Claros, Brazil · Accounting",
           "bullets": [
-            "RPA for automated tax document issuance on a government portal, eliminating recurring manual work in the tax department.",
+            "RPA for automated GFD issuance on FGTS Digital, eliminating recurring manual work in the tax department.",
             "Invoice issuance control flow integrated with a fiscal API.",
-            "Co-authored architecture for enriching registration data with generative models and web scraping, with a refinement step before persistence.",
-            "Owner of CI/CD infrastructure: pipelines with continuous deploy to VPS."
+            "Relational cross-referencing of government data to produce information for stakeholders, with registration enrichment via generative models and web scraping — refinement before persistence.",
+            "Owner of CI/CD infrastructure: pipelines with continuous deploy to VPS, containerized environments and secrets kept out of the code."
           ]
         },
         {
@@ -337,8 +349,10 @@
       "period": "02/2022 — Present (7th semester)",
       "subjects": [
         "Algorithms & Data Structures",
+        "File Structures (OSA)",
         "Databases",
         "Software Engineering",
+        "Heuristic Techniques",
         "Computer Architecture",
         "OOP",
         "Artificial Intelligence",

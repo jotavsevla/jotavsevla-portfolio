@@ -99,7 +99,7 @@
   },
   "poc2": {
     "nav": {
-      "role_line": "Backend · Automação · Aberto a oportunidades",
+      "role_line": "Backend · Automação · CI/CD · Aberto a oportunidades",
       "works": "Projetos",
       "stack": "Stack",
       "archive": "Trajetória",
@@ -119,15 +119,15 @@
       "eyebrow": "Um ponto de inflexão",
       "pre": "Em 2024, eu estava aprendendo a programar. Em 2026, ",
       "em": "estou enviando código pra produção",
-      "post": " — com automações, integrações e CI/CD."
+      "post": " — com automações, modelagem de banco, integrações e CI/CD."
     },
     "about": {
       "eyebrow": "Sobre",
       "lead": "Este portfólio reúne o que aprendi entregando backend em produção: o que defendo, como decido, e onde já apliquei.",
       "paragraphs": [
-        "Sou estagiário em desenvolvimento de software no Grupo.Con / Doctor.Con (contabilidade), respondendo por automações fiscais (RPA no portal gov.br), integrações com APIs fiscais, enriquecimento de dados com modelos generativos, e pela infraestrutura de CI/CD da empresa.",
+        "Sou estagiário em desenvolvimento de software no Grupo.Con / Doctor.Con (contabilidade), respondendo por automações fiscais em produção — RPA para emissão de GFD no FGTS Digital, controle de emissão de notas fiscais e cruzamento de dados relacionais de sistemas do governo para gerar informação a interessados — e pela infraestrutura de CI/CD da empresa: pipelines com deploy contínuo, ambientes em container e segredos fora do código.",
         "Antes disso, passei 18 meses em atendimento ao cliente Mercado Livre — média de 30 atendimentos por dia, NPS consistentemente acima de 30. Antes ainda, joguei Rainbow Six Siege profissionalmente por Yeah Gaming e Isurus Gaming, vice-campeão nacional na temporada 2019/20.",
-        "Hoje estou no 7º período de Ciência da Computação no IFNMG e aberto a oportunidades que envolvam backend orientado a testes, automação ou integrações."
+        "Hoje estou no 7º período de Ciência da Computação no IFNMG e aberto a oportunidades que envolvam backend orientado a testes, modelagem de banco, automação ou infraestrutura de entrega (CI/CD)."
       ]
     },
     "stats": {
@@ -156,13 +156,15 @@
           "title": "Água Viva OOP",
           "code": "agua-viva-oop",
           "kind": "Backend logístico com otimização de rotas (CVRPTW).",
-          "stack": "Backend orientado a objetos · banco relacional · solver externo · orquestração com containers",
+          "stack": "Backend orientado a objetos · banco relacional com migrations · solver externo · CI/CD com paridade local",
           "status": "personal",
           "year": 2026,
           "bullets": [
             "Arquitetura desacoplada com solver dedicado consumido via REST.",
             "Suite completa de testes de integração com banco real em tmpfs — sem mocks.",
-            "Domínio com Value Objects imutáveis e papéis modelados por enum."
+            "Migrations idempotentes como fonte única do schema; API stateless com idempotência por canal+chave.",
+            "Contrato OpenAPI como fonte de verdade, com gates anti-drift e mutation testing no domínio.",
+            "Segredos via arquivo, roles de banco com menor privilégio e startup fail-fast em produção."
           ]
         },
         {
@@ -193,11 +195,15 @@
         {
           "title": "OSA — Sistemas de Arquivos",
           "code": "OSA-projects",
-          "kind": "B-trees e serializações para carregamento otimizado disco→memória.",
-          "stack": "Estruturas em disco · serialização · I/O",
+          "kind": "Do byte ao índice: serialização, empacotamento, Árvore B e motor de busca.",
+          "stack": "Estruturas em disco · serialização · indexação · I/O",
           "status": "academic",
           "year": 2024,
-          "bullets": []
+          "bullets": [
+            "Serialização de registros com buffer e empacotamento (packing fixo e delimitadores).",
+            "Indexação com Árvore B de ordem configurável.",
+            "Motor de busca com índice invertido + índice primário."
+          ]
         },
         {
           "title": "TBO — Busca e Ordenação",
@@ -206,7 +212,10 @@
           "stack": "Algoritmos clássicos · análise de tempo e memória",
           "status": "academic",
           "year": 2024,
-          "bullets": []
+          "bullets": [
+            "Projetos aplicados: gerenciador de cinemas e busca em dicionário com corretor ortográfico.",
+            "Comparação empírica de algoritmos de ordenação (tempo e memória)."
+          ]
         },
         {
           "title": "Portfólio",
@@ -240,6 +249,7 @@
           "contexts": [
             "APIs REST orientadas a casos de uso",
             "Modelagem com índices parciais, CTEs e views",
+            "Migrations idempotentes como fonte única do schema",
             "Hierarquias de papéis e estados via enum"
           ]
         },
@@ -254,18 +264,20 @@
         },
         {
           "title": "Entrega contínua",
-          "manifesto": "Deploy é parte do produto. Pipeline que ninguém entende é pipeline quebrado. Logs precisam falar a língua de quem vai acordar às 3h pra olhar.",
+          "manifesto": "Deploy é parte do produto. Pipeline que ninguém entende é pipeline quebrado. Logs precisam falar a língua de quem vai acordar às 3h pra olhar. E segredo não vai em código: vai em arquivo, com o mínimo de privilégio possível.",
           "contexts": [
             "Pipelines de CI com deploy em push",
             "Deploy contínuo via SSH em VPS",
-            "Ambientes reprodutíveis via containers"
+            "Ambientes reprodutíveis via containers",
+            "Segredos fora do código e paridade local↔CI via toolchain"
           ]
         },
         {
           "title": "Fundamentos",
-          "manifesto": "Estrutura de dados é o que separa solução de gambiarra que escala. Algoritmo certo na primeira tentativa economiza semanas de reescrita.",
+          "manifesto": "Computação é ordenada, serializada, sequencial, relacional — é muita coisa pra aprender, mas é correlacionando as estruturas que o difícil vira simples. Estrutura de dados é o que separa solução de gambiarra que escala, e há elegância nisso.",
           "contexts": [
             "Estruturas e algoritmos clássicos implementados from-scratch",
+            "Serialização, indexação e Árvore B aplicadas a arquivos",
             "Heurísticas e metaheurísticas em problemas NP",
             "Algoritmos em grafos"
           ]
@@ -296,10 +308,10 @@
           "period": "03/2026 — Atual",
           "location": "Montes Claros, MG · Contabilidade",
           "bullets": [
-            "RPA para emissão automatizada de GFD em portal governamental, eliminando tarefa manual recorrente do setor fiscal.",
+            "RPA para emissão automatizada de GFD no FGTS Digital, eliminando tarefa manual recorrente do setor fiscal.",
             "Sistema de controle de fluxo de emissão de notas fiscais com integração à API fiscal.",
-            "Coautoria da arquitetura de enriquecimento de dados cadastrais com modelos generativos e web scraping, com refinamento antes da persistência.",
-            "Responsável pela infraestrutura de CI/CD: pipelines com deploy contínuo em VPS."
+            "Cruzamento de dados relacionais de sistemas do governo para gerar informação a interessados, com enriquecimento cadastral via modelos generativos e web scraping — refinamento antes da persistência.",
+            "Responsável pela infraestrutura de CI/CD: pipelines com deploy contínuo em VPS, ambientes em container e segredos fora do código."
           ]
         },
         {
@@ -337,8 +349,10 @@
       "period": "02/2022 — Atual (7º período)",
       "subjects": [
         "Algoritmos e Estruturas de Dados",
+        "Organização de Sistemas de Arquivos",
         "Banco de Dados",
         "Engenharia de Software",
+        "Técnicas Heurísticas",
         "Arquitetura de Computadores",
         "POO",
         "Inteligência Artificial",

@@ -91,6 +91,12 @@ export function WorkDrawer({
               </div>
             </dl>
 
+            {/* NOTA (2026-07): repos privados (ex.: agua-viva-oop, produto) fazem
+                este CTA cair em 404 no GitHub. Ideia registrada para o futuro:
+                mapear codigos privados para uma URL de preview/demo (hardcoded ou
+                rota filtrada que so lista sistemas privados) e apontar o CTA para
+                la em vez do repositorio. Decidimos nao gastar tempo com essa
+                logica agora; o texto do card ja avisa que o codigo e privado. */}
             <a
               className="work-drawer__cta"
               href={`https://github.com/${profileData.githubUsername}/${work.code}`}

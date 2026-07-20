@@ -113,7 +113,7 @@
       "display_year": "2026",
       "caption_top": "How I build backend software: tests first, automation in production, decisions under pressure.",
       "scroll_to_read": "Scroll to read",
-      "sub_by": "Software engineering intern at Grupo.Con / Doctor.Con, in partnership with IFNMG."
+      "sub_by": "Software development internship at Grupo.Con / Doctor.Con (2026); Computer Science at IFNMG."
     },
     "thesis": {
       "eyebrow": "An inflection point",
@@ -125,7 +125,7 @@
       "eyebrow": "About",
       "lead": "This portfolio gathers what I've learned shipping backend in production: what I stand for, how I decide, and where I've applied it.",
       "paragraphs": [
-        "I'm a software engineering intern at Grupo.Con / Doctor.Con (accounting), owning fiscal automations in production — RPA for GFD issuance on FGTS Digital, an invoice-issuance control system, and relational cross-referencing of government data to produce information for stakeholders — plus the company's CI/CD infrastructure: pipelines with continuous deploy, containerized environments and secrets kept out of the code.",
+        "I was a software development intern at Grupo.Con / Doctor.Con (accounting), where I owned fiscal automations in production — RPA for GFD issuance on FGTS Digital, an invoice-issuance control system, and relational cross-referencing of government data to produce information for stakeholders — plus the company's CI/CD infrastructure: pipelines with continuous deploy, containerized environments and secrets kept out of the code.",
         "Before that, I spent 18 months in customer support for Mercado Livre — 30 cases per day on average, NPS consistently above 30. Before that, I played Rainbow Six Siege professionally for Yeah Gaming and Isurus Gaming, national runner-up in the 2019/20 season.",
         "I'm a 7th-semester Computer Science student at IFNMG and open to opportunities in test-driven backend, database modeling, automation or delivery infrastructure (CI/CD)."
       ]
@@ -301,11 +301,11 @@
       "section_title": "Trajectory",
       "section_eyebrow": "Trajectory",
       "section_meta": "Archive · 2019 — present",
-      "now_label": "Now",
+      "now_label": "Latest",
       "entries": [
         {
           "role": "Software Engineering Intern — Grupo.Con / Doctor.Con",
-          "period": "03/2026 — Present",
+          "period": "03/2026 — 07/2026",
           "location": "Montes Claros, Brazil · Accounting",
           "bullets": [
             "RPA for automated GFD issuance on FGTS Digital, eliminating recurring manual work in the tax department.",
@@ -378,7 +378,7 @@
       "col_now": "Now",
       "col_colophon": "Colophon",
       "now_lines": [
-        "Interning at Grupo.Con",
+        "Open to opportunities",
         "7th semester CS at IFNMG",
         "Montes Claros, Brazil"
       ],

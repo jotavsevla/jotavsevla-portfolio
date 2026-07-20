@@ -113,7 +113,7 @@
       "display_year": "2026",
       "caption_top": "Como construo software backend: testes primeiro, automação em produção, decisão sob pressão.",
       "scroll_to_read": "Role para ler",
-      "sub_by": "Estagiário em desenvolvimento de software no Grupo.Con / Doctor.Con, em parceria com IFNMG."
+      "sub_by": "Estágio em desenvolvimento de software no Grupo.Con / Doctor.Con (2026); Ciência da Computação no IFNMG."
     },
     "thesis": {
       "eyebrow": "Um ponto de inflexão",
@@ -125,7 +125,7 @@
       "eyebrow": "Sobre",
       "lead": "Este portfólio reúne o que aprendi entregando backend em produção: o que defendo, como decido, e onde já apliquei.",
       "paragraphs": [
-        "Sou estagiário em desenvolvimento de software no Grupo.Con / Doctor.Con (contabilidade), respondendo por automações fiscais em produção — RPA para emissão de GFD no FGTS Digital, controle de emissão de notas fiscais e cruzamento de dados relacionais de sistemas do governo para gerar informação a interessados — e pela infraestrutura de CI/CD da empresa: pipelines com deploy contínuo, ambientes em container e segredos fora do código.",
+        "Fui estagiário de desenvolvimento de software no Grupo.Con / Doctor.Con (contabilidade), onde respondi por automações fiscais em produção — RPA para emissão de GFD no FGTS Digital, controle de emissão de notas fiscais e cruzamento de dados relacionais de sistemas do governo para gerar informação a interessados — e pela infraestrutura de CI/CD da empresa: pipelines com deploy contínuo, ambientes em container e segredos fora do código.",
         "Antes disso, passei 18 meses em atendimento ao cliente Mercado Livre — média de 30 atendimentos por dia, NPS consistentemente acima de 30. Antes ainda, joguei Rainbow Six Siege profissionalmente por Yeah Gaming e Isurus Gaming, vice-campeão nacional na temporada 2019/20.",
         "Hoje estou no 7º período de Ciência da Computação no IFNMG e aberto a oportunidades que envolvam backend orientado a testes, modelagem de banco, automação ou infraestrutura de entrega (CI/CD)."
       ]
@@ -301,11 +301,11 @@
       "section_title": "Trajetória",
       "section_eyebrow": "Trajetória",
       "section_meta": "Arquivo · 2019 — presente",
-      "now_label": "Agora",
+      "now_label": "Mais recente",
       "entries": [
         {
           "role": "Estagiário em Desenvolvimento de Software — Grupo.Con / Doctor.Con",
-          "period": "03/2026 — Atual",
+          "period": "03/2026 — 07/2026",
           "location": "Montes Claros, MG · Contabilidade",
           "bullets": [
             "RPA para emissão automatizada de GFD no FGTS Digital, eliminando tarefa manual recorrente do setor fiscal.",
@@ -378,7 +378,7 @@
       "col_now": "Agora",
       "col_colophon": "Cólofon",
       "now_lines": [
-        "Estagiando no Grupo.Con",
+        "Aberto a oportunidades",
         "7º período de CC no IFNMG",
         "Montes Claros, MG"
       ],

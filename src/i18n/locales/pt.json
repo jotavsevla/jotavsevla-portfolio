@@ -155,7 +155,7 @@
         {
           "title": "Água Viva OOP",
           "code": "agua-viva-oop",
-          "kind": "Backend logístico com otimização de rotas (CVRPTW).",
+          "kind": "Backend logístico com otimização de rotas (CVRPTW). Produto em desenvolvimento — código privado; ambiente de demonstração pública no roadmap.",
           "stack": "Backend orientado a objetos · banco relacional com migrations · solver externo · CI/CD com paridade local",
           "status": "personal",
           "year": 2026,

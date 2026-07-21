@@ -1356,7 +1356,10 @@
   padding: 0.15rem 0.4rem;
 }
 
-.work-drawer__cta {
+/* .poc2 a { color: inherit } tem especificidade (0,1,1) e vencia a classe
+   sozinha (0,1,0), deixando o texto preto sobre fundo preto; o seletor
+   precisa do prefixo .poc2 para a cor declarada valer. */
+.poc2 .work-drawer__cta {
   margin-top: auto;
   display: inline-flex;
   align-items: center;
@@ -1372,7 +1375,7 @@
   text-transform: uppercase;
 }
 
-.work-drawer__cta:hover { background: var(--orange); }
+.poc2 .work-drawer__cta:hover { background: var(--orange); color: var(--ink); }
 
 /* ── Scroll progress bar (sticky top) ────────────────────────── */
 .poc2-progress {
